@@ -10,7 +10,7 @@ db.once('open', async () => {
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
+    for (let i = 0; i < productSeeds.length; i++) {
       const { _id, seller } = await Product.create(productSeeds[i]);
       const user = await User.findOneAndUpdate(
         { username: seller },
