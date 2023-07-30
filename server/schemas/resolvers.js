@@ -5,7 +5,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     categories: async () => Category.find(),
-    products: async (parent, { category, name }) => {
+    products: async (parent, { category, name, seller }) => {
       const params = {};
 
       if (category) {
@@ -16,6 +16,10 @@ const resolvers = {
         params.name = {
           $regex: name,
         };
+      }
+
+      if (seller) {
+        params.seller = seller;
       }
 
       return Product.find(params).populate('category');
