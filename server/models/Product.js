@@ -30,9 +30,9 @@ const productSchema = new Schema({
     required: true,
   },
   category: {
-    type: Schema.Types.String,
-    ref: 'Category',
-    required: true
+    type: Schema.Types.ObjectId,
+    ref: 'Category'
+    
   },
   seller: {
     type: String,
