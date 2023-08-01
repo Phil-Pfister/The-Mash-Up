@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     
     open: '/',
+    proxy: {
+      '/graphql': 'http://localhost:3001'
+    }
     
   },
   
