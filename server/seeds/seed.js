@@ -1,14 +1,14 @@
 const db = require('../config/connection');
-const { User, Product, Category } = require('../models');
+const { User, Product } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const productSeeds = require('./productSeeds.json');
-const categorySeeds = require('./categorySeeds.json');
+
 
 db.once('open', async () => {
   try {
     await Product.deleteMany({});
     await User.deleteMany({});
-    await Category.deleteMany({});
+    
 
     await User.create(userSeeds);
     
@@ -24,17 +24,7 @@ db.once('open', async () => {
         }
       );
     }
-    for (let i = 0; i < categorySeeds.length; i++) {
-      const { _id, category } = await Category.create(categorySeeds[i]);
-      const product = await Product.findOneAndUpdate(
-        { category: category },
-        {
-          $addToSet: {
-            category: _id,
-          },
-        }
-      );
-    }
+   
   } catch (err) {
     console.error(err);
     process.exit(1);

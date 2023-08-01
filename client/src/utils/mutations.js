@@ -23,9 +23,8 @@ export const ADD_ORDER = gql`
         quantity
         image
         seller
-        category {
-          name
-        }
+        category
+        keyword
       }
     }
   }

@@ -1,37 +1,23 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User, Product, Order } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    categories: async () => Category.find(),
-    products: async (parent, { category, name, seller }) => {
-      const params = {};
+    
+    products: async (parent, args) => {
+      
 
-      if (category) {
-        params.category = category;
-      }
-
-      if (name) {
-        params.name = {
-          $regex: name,
-        };
-      }
-
-      if (seller) {
-        params.seller = seller;
-      }
-
-      return Product.find(params).populate('category');
+      return Product.find(args);
     },
     product: async (parent, { id }) =>
-      Product.findById(id).populate('category'),
+      Product.findById(id),
 
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user.id).populate({
           path: 'orders.products',
-          populate: 'category',
+          
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -45,7 +31,7 @@ const resolvers = {
       if (context.user) {
         const user = await User.findById(context.user.id).populate({
           path: 'orders.products',
-          populate: 'category',
+          
         });
 
         return user.orders.id(id);
