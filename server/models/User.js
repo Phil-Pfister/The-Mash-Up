@@ -3,9 +3,17 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const Order = require('./Order');
-const Product = require('./Product')
+
 
 const userSchema = new Schema({
+  firstName: {
+    type: String,
+    trim: true,
+  },
+  lastName: {
+    type: String,
+    trim: true,
+  },
   username: {
     type: String,
     required: true,
@@ -43,7 +51,11 @@ userSchema.pre('save', async function (next) {
 
 // Compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = async function (password) {
+  console.log(password, this.password);
+  const revert = await bcrypt.hash(password, 10);
+  console.log(revert);
   await bcrypt.compare(password, this.password);
+  
 };
 
 const User = mongoose.model('User', userSchema);

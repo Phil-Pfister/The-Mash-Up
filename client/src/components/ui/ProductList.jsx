@@ -13,24 +13,30 @@ const ProductList = () => {
   }
 
   return (
-    <div>
-      <h3>Products for you</h3>
+    <>
+    <div className="box-content h-20">
+      <h3 className='text-3xl text-center'>Products for you</h3>
+    </div>
+    
+    <div className="flex flex-row">
+     
       {products &&
         products.map((product) => (
-          <div key={product._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+          <div key={product._id} className="flex flex-col box-content h-50 w-50 p-4 border-4">
+            <h4 className="box-header bg-primary text-light p-2 m-0">
               {product.name} <br />
              <div>
-                <img src={product.image} />
+                <img className="object-contain h-48 w-96" src={product.image} />
              </div>
             </h4>
             <div className="card-body bg-light p-2">
               
-              <p>{product.seller}</p>
+              <p>Seller: {product.seller}</p>
             </div>
           </div>
         ))}
     </div>
+    </>
   );
 };
 
