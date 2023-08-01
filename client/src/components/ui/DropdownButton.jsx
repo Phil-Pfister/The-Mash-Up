@@ -1,68 +1,8 @@
 import React from "react";
-import { useState } from "react";
 
 export default function DropdownButton() {
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const dropdownMenu = [
-    {
-      id: 0,
-      title: "Instruments",
-      selected: false,
-      dropdownList: [
-        "Guitar and Basses",
-        "Percussion",
-        "Piano",
-        "String",
-        "Brass",
-      ],
-    },
-    {
-      id: 1,
-      title: "Equipment",
-      selected: false,
-      dropdownList: [
-        "DJ Equipment",
-        "Lighting",
-        "Microphones",
-        "Headphones",
-        "Cables",
-        "Accessories",
-      ],
-    },
-    {
-      id: 2,
-      title: "Music",
-      selected: false,
-      dropdownList: [
-        "Rock",
-        "Pop",
-        "Rap",
-        "Hip Hop",
-        "Electronic",
-        "Jazz",
-        "Classical",
-        "Folk",
-        "Country",
-        "blacks",
-        "Latin",
-        "Reggae",
-      ],
-    },
-    {
-        id: 3,
-        title: "Merch",
-        selected: false,
-        dropdownList: [
-            "T-Shirts",
-             "Hoodies",
-              "Caps",
-               "Bags",
-                "Accessories"
-            ],
-      },
-  ];
+  
 
 
   
