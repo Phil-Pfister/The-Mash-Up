@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/ui/Header';
 import SignUp from './pages/Signup';
+import Login from './pages/Login';
 {/*import Home from './pages/Home';*/}
 import {
   ApolloClient,
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="/signup" element={<SignUp/>} />
           {/*<Route exact path="/home" component={Home} />*/}
           {/* Add more routes as needed */}
+          <Route path="/login" element={<Login/>} />
           <Route path="/products" element={<ProductList />} />
         </Routes>
       </>
