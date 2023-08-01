@@ -5,6 +5,7 @@ const { authMiddleware } = require('./utils/auth');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+const { User } = require('./models/User');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -16,6 +17,31 @@ const server = new ApolloServer({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// User registration API endpoint
+app.post('/api/signup', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+
+    // Check if the user already exists in the database
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ error: 'User already exists with this email.' });
+    }
+
+    // Create a new user using the data received from the client
+    const newUser = new User({ username, email, password });
+
+    // Save the user to the database
+    await newUser.save();
+
+    res.status(201).json({ message: 'User registered successfully!' });
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.status(500).json({ error: 'An error occurred while registering the user.' });
+  }
+});
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
