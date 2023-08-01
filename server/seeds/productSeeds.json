@@ -6,6 +6,8 @@
     "price": "10.00",
     "quantity": "1",
     "condition": "good",
+    "category": "Music",
+    "keyword": "Rock",
     "seller": "John-Smith121"
   },
   {
@@ -15,6 +17,8 @@
     "price": "3000.00",
     "quantity": "1",
     "condition": "mint",
+    "category": "Instruments",
+    "keyword": "Guitars and Basses",
     "seller": "JimiH"
   },
   {
@@ -24,6 +28,8 @@
     "price": "30.00",
     "quantity": "1",
     "condition": "good",
+    "category": "Merch",
+    "keyword": "T-Shirts",
     "seller": "peteGab77"
   },
   {
@@ -33,6 +39,8 @@
     "price": "150.00",
     "quantity": "1",
     "condition": "mint",
+    "category": "Equipment",
+    "keyword": "DJ Equipment",
     "seller": "toriamos25"
   }
 
