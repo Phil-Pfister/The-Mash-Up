@@ -1,6 +1,6 @@
 
 import { useQuery } from '@apollo/client'
-import ProductList from '../components/ui/Product';
+import ProductList from '../components/ui/ProductList';
 
 import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 

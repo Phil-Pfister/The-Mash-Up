@@ -1,6 +1,13 @@
 import React from 'react';
+import { useQuery } from '@apollo/client'
 
-const ProductList = ({ name, image, category, seller }) => {
+
+import { QUERY_ALL_PRODUCTS } from '../../utils/queries';
+
+const ProductList = () => {
+  const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
+  const products = data?.products || [];
+  
   if (!products.length) {
     return <h3>No items in this category</h3>;
   }
@@ -14,7 +21,7 @@ const ProductList = ({ name, image, category, seller }) => {
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {product.name} <br />
              <div>
-                <img href={product.image} />
+                <img src={product.image} />
              </div>
             </h4>
             <div className="card-body bg-light p-2">
