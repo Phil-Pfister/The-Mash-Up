@@ -1,1 +1,6 @@
-
+.welcome-page {
+    background-image: url('../public/images/welcome.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
