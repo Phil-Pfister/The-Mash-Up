@@ -42,6 +42,83 @@
     "category": "Equipment",
     "keyword": "DJ Equipment",
     "seller": "toriamos25"
+  },
+  {
+    "name": "Tshirt Rod Stewart/Forever Young",
+    "description": "Mens Large Tshirt",
+    "image": "https://m.media-amazon.com/images/I/A13usaonutL._CLa%7C2140%2C2000%7CA1D-DywahdL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UX679_.png",
+    "price": "30.00",
+    "quantity": "1",
+    "condition": "good",
+    "category": "Merch",
+    "keyword": "T-Shirts",
+    "seller": "peteGab77"
+  },
+  {
+    "name": "Sad Wings of Destiny",
+    "description": "Judas Priest CD 1976",
+    "image": "https://upload.wikimedia.org/wikipedia/en/thumb/6/65/Sad_wings_of_destiny_cover.jpg/220px-Sad_wings_of_destiny_cover.jpg",
+    "price": "30.00",
+    "quantity": "1",
+    "condition": "mint",
+    "category": "Music",
+    "keyword": "Rock",
+    "seller": "Wayne-Garth"
+  },
+  {
+    "name": "Pace Drum Kit",
+    "description": "20 piece drum set ",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Portnoy_2327834448_d06703c5cd_o.jpg/250px-Portnoy_2327834448_d06703c5cd_o.jpg",
+    "price": "300.00",
+    "quantity": "1",
+    "condition": "good",
+    "category": "Instruments",
+    "keyword": "Drums",
+    "seller": "DavidThomas11"
+  },
+  {
+    "name": "Tshirt FEAR",
+    "description": "Mens Medium Tshirt",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzogq7nd9ZdbGse8yYAw247KQEvUyUMZ8naQ&usqp=CAU",
+    "price": "20.00",
+    "quantity": "1",
+    "condition": "good",
+    "category": "Merch",
+    "keyword": "T-Shirts",
+    "seller": "peteGab77"
+  },
+  {
+    "name": "Technics SL-1200",
+    "description": "Direct Drive Turntable",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Technics_SL-1200MK2-2.jpg/600px-Technics_SL-1200MK2-2.jpg",
+    "price": "130.00",
+    "quantity": "1",
+    "condition": "great",
+    "category": "Equipment",
+    "keyword": "DJ Equipment",
+    "seller": "toriamos25"
+  },
+  {
+    "name": "Fender Jazz Bass",
+    "description": "Mens Large Tshirt",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Fender_Jazz_Bass.jpg/500px-Fender_Jazz_Bass.jpg",
+    "price": "1100.00",
+    "quantity": "1",
+    "condition": "mint",
+    "category": "Istruments",
+    "keyword": "Guitars and Basses",
+    "seller": "WasNotWas"
+  },
+  {
+    "name": "A Love Supreme",
+    "description": "John Coltrane Album/Vinyl original press",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/9a/John_Coltrane_-_A_Love_Supreme.jpg",
+    "price": "80.00",
+    "quantity": "1",
+    "condition": "great",
+    "category": "Music",
+    "keyword": "Jazz",
+    "seller": "lespaul66"
   }
 
 ]
