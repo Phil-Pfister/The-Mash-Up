@@ -206,6 +206,7 @@ export default function Welcome(props) {
             </span>
           </p>
         </div>
+      
       </div>
      
     </>
