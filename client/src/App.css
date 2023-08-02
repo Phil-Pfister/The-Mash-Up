@@ -4,3 +4,10 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.login-page {
+    background-image: url('../public/images/listen.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
