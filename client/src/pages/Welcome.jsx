@@ -1,9 +1,36 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { useNavigation, Route } from "react-router-dom";
-import welcome from "../../public/images/welcome.jpg";
+import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
 
-export default function Welcome() {
+
+
+export default function Welcome(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 welcome-page">
@@ -29,7 +56,7 @@ export default function Welcome() {
           </div>
 
           <div className="mt-10">
-            <form action="#">
+            <form onSubmit={handleFormSubmit}>
               <div className="flex flex-col mb-5">
                 <label
                   htmlFor="email"
@@ -68,6 +95,7 @@ export default function Welcome() {
                     py-2
                     focus:outline-none focus:border-red-400
                   "
+                    onChange={handleChange}
                     placeholder="Enter your email"
                   />
                 </div>
@@ -92,6 +120,7 @@ export default function Welcome() {
                     w-10
                     text-gray-400
                   "
+                  
                   >
                     <span>
                       <i className="fas fa-lock text-red-500"></i>
@@ -112,6 +141,7 @@ export default function Welcome() {
                     py-2
                     focus:outline-none focus:border-red-400
                   "
+                  onChange={handleChange}
                     placeholder="Enter your password"
                   />
                 </div>
