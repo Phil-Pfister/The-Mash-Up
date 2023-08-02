@@ -43,6 +43,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Welcome/>} />
           <Route exact path="/signup" element={<SignUp/>} />
+          <Route exact path="/home" element={<ProductList/>} />
           {/*<Route exact path="/home" component={Home} />*/}
           {/* Add more routes as needed */}
           <Route path="/login" element={<Login/>} />
