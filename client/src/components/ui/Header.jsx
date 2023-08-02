@@ -1,11 +1,9 @@
 import React from "react";
 import SearchBar from "./SearchBar";
-import { useState } from "react";
-
+import { useState, useEffect, useRef } from "react";
 
 export default function Header() {
-
-    const [isOpen, setIsOpen] = useState('');
+  const [isOpen, setIsOpen] = useState("");
 
   const navMenu = [
     {
@@ -53,75 +51,82 @@ export default function Header() {
       ],
     },
     {
-        id: 3,
-        title: "Merch",
-        selected: false,
-        dropdownList: [
-            "T-Shirts",
-            "Hoodies",
-            "Caps",
-            "Bags",
-            "Accessories"
-            ],
-      },
+      id: 3,
+      title: "Merch",
+      selected: false,
+      dropdownList: ["T-Shirts", "Hoodies", "Caps", "Bags", "Accessories"],
+    },
   ];
 
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true)
+  }, [])
 
+  const refOne = useRef(null);
 
+  const handleClickOutside = (e) => {
+    if(!refOne.current.contains(e.target)) {
+      setIsOpen('');
+    } else {
+      console.log('Clicked inside tab');
+    }
+  }
 
-    return (
-        <>
-            <nav className="flex items-start justify-between flex-wrap bg-red-500 p-4 w-screen h-[90px]">
-                <div className="flex flex-shrink-0 text-white mr-6">
-                    <span className="font-semibold text-xl tracking-tight">The Mash Up</span>
-                </div> 
-                <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                    <div className="text-md flex items-center justify-center lg:flex-grow ">
-                        <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 bg-black-50 md:flex-row md:space-x-8 md:mt-0 md:border-0">
-                            {navMenu.map((item, i) => (
-                                <div key={item.id}>
-                                    <div className="flex">
-                                        <li>
-                                        <a 
-                                        href="#" 
-                                        className="block py-2 pl-3 pr-4 text-white bg-black-700 md:bg-transparent md:text-black-700 md:p-0"
-                                        onMouseEnter={() => setIsOpen(item.title)}
-                                        onMouseLeave={() => setIsOpen('')}
-                                        >{item.title}
-                                        {isOpen===item.title ? (
-                                            <i className="fa-solid fa-caret-up pl-2"></i>
-                                        ) : (
-                                            <i className="fa-solid fa-caret-down pl-2"></i>
-                                        )}</a>
-                                    </li>
-                                    </div>
-                                    <ul className=
-                                                    {isOpen===item.title ? (
-                                                        "p-2 text-sm text-white flex flex-col bg-black"
-                                                    ) : (
-                                                        "hidden p-2 text-sm text-white flex flex-col bg-black"
-                                                    )}
-                                                    >
-
-                                                {navMenu[i].dropdownList.map((item, i) => (
-                                                    
-                                                        <li key={item}>
-                                                            <a href="#" className=" block py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{item}</a>
-                                                        </li>
-                                            )
-                                        )}
-                                    </ul>
-                                </div>
-                                
-                            ))}
-                            
-                        
-                        </ul>
-                    </div>
+  return (
+    <>
+      <nav className="flex items-start justify-between flex-wrap bg-red-500 p-4 w-screen h-[70px]">
+        <div className="flex flex-shrink-0 text-white mr-6">
+          <span className="font-semibold text-xl tracking-tight">
+            The Mash Up
+          </span>
+        </div>
+        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <div className="text-md flex items-center justify-center lg:flex-grow ">
+            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 bg-black-50 md:flex-row md:space-x-8 md:mt-0 md:border-0">
+              {navMenu.map((item, i) => (
+                <div key={item.id}>
+                  <div className="flex">
+                    <li>
+                      <a
+                        href="#"
+                        className="block py-2 pl-3 pr-4 text-white bg-black-700 md:bg-transparent md:text-black-700 md:p-0"
+                        onClick={() => setIsOpen(item.title)}
+                        ref={refOne}
+                      >
+                        {item.title}
+                        {isOpen === item.title ? (
+                          <i className="fa-solid fa-caret-up pl-2"></i>
+                        ) : (
+                          <i className="fa-solid fa-caret-down pl-2"></i>
+                        )}
+                      </a>
+                    </li>
+                  </div>
+                  <ul
+                    className={
+                      isOpen === item.title
+                        ? "p-2 text-sm text-white flex flex-col bg-black"
+                        : "hidden p-2 text-sm text-white flex flex-col bg-black"
+                    }
+                  >
+                    {navMenu[i].dropdownList.map((item, i) => (
+                      <li key={item}>
+                        <a
+                          href="#"
+                          className=" block p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          {item}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <SearchBar />
-
-            </nav>
-        </>
-    )
+              ))}
+            </ul>
+          </div>
+        </div>
+        <SearchBar />
+      </nav>
+    </>
+  );
 }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/ui/Header';
 import SignUp from './pages/Signup';
 import Login from './pages/Login';
+import Welcome from './pages/Welcome';
 {/*import Home from './pages/Home';*/}
 import {
   ApolloClient,
@@ -40,6 +41,7 @@ function App() {
       <>
         <Header />
         <Routes>
+          <Route exact path="/" element={<Welcome/>} />
           <Route exact path="/signup" element={<SignUp/>} />
           {/*<Route exact path="/home" component={Home} />*/}
           {/* Add more routes as needed */}
