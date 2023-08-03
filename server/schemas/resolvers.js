@@ -70,6 +70,33 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
+    addProduct: async (parent, { name, description, image, price, quantity, condition, category, keyword }, context) => {
+      
+      if (context.user) {
+        
+        const product = await Product.create({
+          name,
+          description,
+          image,
+          price,
+          quantity,
+          condition,
+          category,
+          keyword,
+          seller: context.user.username,
+        });
+        console.log(product)
+        await User.findOneAndUpdate(
+          { _id:context.user._id },
+          { $addToSet: { products: product._id} }
+        );
+        return product;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
     updateProduct: async (parent, { id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
