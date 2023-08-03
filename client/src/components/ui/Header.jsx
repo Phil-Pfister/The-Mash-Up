@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import { useState, useEffect, useRef } from "react";
-
+import Auth from '../../utils/auth'
 export default function Header() {
   const [isOpen, setIsOpen] = useState("");
 
@@ -125,6 +125,15 @@ export default function Header() {
             </ul>
           </div>
         </div>
+        {Auth.loggedIn() ? (
+        <>
+          
+          <button onClick={Auth.logout}>Logout</button>
+        </>
+
+        ) : (
+          <><p>not logged in</p></>
+        )}
         <SearchBar />
       </nav>
     </>
