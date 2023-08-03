@@ -5,6 +5,7 @@ import SignUp from './pages/Signup';
 import Login from './pages/Login';
 import Welcome from './pages/Welcome';
 {/*import Home from './pages/Home';*/}
+import ProductForm from './pages/ProductForm';
 import {
   ApolloClient,
   InMemoryCache,
@@ -47,6 +48,7 @@ function App() {
           {/* Add more routes as needed */}
           <Route path="/login" element={<Login/>} />
           <Route path="/products" element={<ProductList />} />
+          <Route path="/addProduct" element={<ProductForm />} />
         </Routes>
       </>
     </Router>
