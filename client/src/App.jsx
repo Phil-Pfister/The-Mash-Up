@@ -4,6 +4,7 @@ import Header from './components/ui/Header';
 import SignUp from './pages/Signup';
 import Login from './pages/Login';
 import Welcome from './pages/Welcome';
+import ProductDetails from './pages/ProductDetails';
 {/*import Home from './pages/Home';*/}
 import {
   ApolloClient,
@@ -43,11 +44,11 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Welcome/>} />
           <Route exact path="/signup" element={<SignUp/>} />
-          <Route exact path="/home" element={<ProductList/>} />
           {/*<Route exact path="/home" component={Home} />*/}
           {/* Add more routes as needed */}
           <Route path="/login" element={<Login/>} />
           <Route path="/products" element={<ProductList />} />
+          <Route path="/products/details" element={<ProductDetails />} />
         </Routes>
       </>
     </Router>
