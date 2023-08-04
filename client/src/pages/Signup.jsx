@@ -40,6 +40,7 @@ const [addUser] = useMutation(ADD_USER);
   };
 
   return (
+
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <form className="
           flex flex-col
@@ -75,6 +76,7 @@ const [addUser] = useMutation(ADD_USER);
             onChange={handleInputChange}
           />
         </div>
+
         <div className="flex flex-col mb-5">
           <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="lastName">Last Name:</label>
           <input className="text-sm
@@ -92,6 +94,7 @@ const [addUser] = useMutation(ADD_USER);
             onChange={handleInputChange}
           />
         </div>
+
         <div className="flex flex-col mb-5">
           <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="email">Email:</label>
           <input className="text-sm
@@ -109,6 +112,7 @@ const [addUser] = useMutation(ADD_USER);
             onChange={handleInputChange}
           />
         </div>
+
         <div className="flex flex-col mb-5">
           <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="username">Username:</label>
           <input className="text-sm
@@ -126,6 +130,7 @@ const [addUser] = useMutation(ADD_USER);
             onChange={handleInputChange}
           />
         </div>
+
         <div className="flex flex-col mb-5">
           <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="password">Password:</label>
           <input className="text-sm
@@ -143,6 +148,7 @@ const [addUser] = useMutation(ADD_USER);
             onChange={handleInputChange}
           />
         </div>
+
         <button className="flex
                   mt-2
                   items-center
