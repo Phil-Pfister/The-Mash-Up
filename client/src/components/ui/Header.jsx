@@ -74,7 +74,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className="flex justify-between flex-wrap bg-red-500 p-4 h-[70px]">
+      <nav className="flex justify-between flex-wrap bg-black p-4 h-[70px]">
         <div className="flex flex-shrink-0 text-white mr-6">
           <span className="font-semibold text-xl tracking-tight">
             The Mash Up
