@@ -36,6 +36,10 @@ export default function Welcome(props) {
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 welcome-page">
         <div
           className="
+          border-8
+          border-red-500
+          backdrop-blur 
+          bg-white/50
           flex flex-col
           bg-gray-100
           shadow-md
