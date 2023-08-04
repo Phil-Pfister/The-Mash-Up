@@ -204,9 +204,9 @@ export default function Welcome(props) {
           >
             <span className="ml-2 text-lg">
               You don't have an account?
-              <a href="#" className="text-lg ml-2 text-red-500 font-semibold">
+              <Link to="/signup" className="text-lg ml-2 text-red-500 font-semibold">
                 Register now
-              </a>
+              </Link>
             </span>
           </p>
         </div>
