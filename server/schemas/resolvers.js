@@ -84,7 +84,7 @@ const resolvers = {
           condition,
           category,
           keyword,
-          seller: context.user.username,
+          seller,
         });
         console.log(product)
         await User.findOneAndUpdate(

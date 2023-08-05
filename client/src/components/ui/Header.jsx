@@ -128,11 +128,11 @@ export default function Header() {
         {Auth.loggedIn() ? (
         <>
           
-          <button onClick={Auth.logout}>Logout</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={Auth.logout}>Logout</button>
         </>
 
         ) : (
-          <><p>not logged in</p></>
+          <><p className="text-white" >not logged in</p></>
         )}
         <SearchBar />
       </nav>
