@@ -15,13 +15,13 @@ const resolvers = {
       Product.findById(id),
 
     user: async (parent, args, context) => {
-      console.log(context.user);
       if (context.user) {
-        const user = await User
-        .findById(context.user._id)
-        .populate("products")
+        const user = await User.findById(context.user.id).populate({
+          path: 'products.name',
+          
+        });
 
-        console.log(user);
+        
 
         return user;
       }
@@ -93,7 +93,10 @@ const resolvers = {
         { $addToSet: { products: product._id }}
       )
         console.log(product)
-       
+        // await User.findOneAndUpdate(
+        //   { _id:context.user._id },
+        //   { $addToSet: { products: product._id} }
+        // );
         return product;
       
 

@@ -34,14 +34,18 @@ export const QUERY_USER = gql`
   {
     user {
       username
-      email
-      firstName
-      lastName
-      products {
+      orders {
         _id
-        name
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
       }
-     
     }
   }
 `;
