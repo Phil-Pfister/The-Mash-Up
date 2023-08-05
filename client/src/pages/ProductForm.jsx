@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 
 import { ADD_PRODUCT } from '../utils/mutations';
-import { QUERY_USER } from '../utils/queries';
 
-import Auth from '../utils/auth';
-console.log(Auth.getUser().data.username);
+
+// import Auth from '../../utils/auth';
 // import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 
 const ProductForm = () => {
-  const navigate = useNavigate();
     const [formState, setFormState] = useState({ category: 'Music'});
 
     const [quantity, setQuantity] = useState(0);
     const [price, setPrice] = useState(0);
-    // const userQuery = useQuery(QUERY_USER);
 
     const handleQuantChange = (event) => {
       setQuantity(+event.target.value);
@@ -29,38 +26,56 @@ const ProductForm = () => {
  
 
     const [addProduct] = useMutation(ADD_PRODUCT);
-    
+    //     , {
+    //     update(cache, { data: { addProduct } }) {
+    //         try {
+    //             const { products } = cache.readQuery({ query: QUERY_ALL_PRODUCTS });
+
+    //             cache.writeQuery({
+    //                 query: QUERY_ALL_PRODUCTS,
+    //                 data: { products: [addProduct, ...products] },
+    //             });
+    //         } catch (err) {
+    //             console.error(err);
+    //         }
+
+    //         const { me } = cache.readQuery({ query: QUERY_ME });
+    //         cache.writeQuery({
+    //             cache: QUERY_ME,
+    //             data: { me: {...me, products: [...me.products, addProduct] } },
+    //         });
+            
+    //     },
+    // });
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-      
+
         try {
-          console.log({ name: formState.name,
+          console.log({name: formState.name,
             description: formState.description,
             image: formState.image,
             condition: formState.condition,
-            seller: Auth.getUser().data.username,
+            seller: formState.seller,
             category: formState.category,
-            keyword: formState.keyword,
-            price,
-            quantity, })
+            keyword: formState.keyword, 
+            price, 
+            quantity});
             const { data } = await addProduct({
                 variables: { 
                   name: formState.name,
                   description: formState.description,
                   image: formState.image,
                   condition: formState.condition,
-                  seller: Auth.getUser().data.username,
+                  seller: formState.seller,
                   category: formState.category,
-                  keyword: formState.keyword,
-                  price,
-                  quantity, 
+                  keyword: formState.keyword, 
                   },
                 
                 
                 });
-            
-               navigate("/products");
+            console.log('data', data);
+            setFormState('');
             
 
             } catch (err){
@@ -84,8 +99,7 @@ const ProductForm = () => {
 
         return (
     <div className="h-screen flex flex-col items-center justify-center">
-    <h3 className="leading-6 text-2xl pb-8" >Add your product to sell to others</h3>  
-    {Auth.loggedIn() ? (     
+    <h3 className="leading-6 text-2xl pb-8" >Add your product to sell to others</h3>       
     <form onSubmit={handleFormSubmit} className="w-full max-w-lg object-center">
     <p className="text-white text-xs italic block">Please fill out all fields.</p>
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -106,8 +120,8 @@ const ProductForm = () => {
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-seller">
         Seller
       </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
-      name="seller" id="grid-last-name" type="text" value={Auth.getUser().data.username}/>
+      <input onChange={handleChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+      name="seller" id="grid-last-name" type="text" placeholder="Seller"/>
     </div>
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
@@ -169,7 +183,7 @@ const ProductForm = () => {
       className="appearance-none block w-full bg-gray-200 
       text-gray-700 border border-gray-200 rounded py-3 px-4 
       leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
-      name="keyword" id="grid-zip" type="text" placeholder="Rock, Guitar, etc"/>
+      name="keyword" id="grid-zip" type="text" placeholder="album, guitar, etc"/>
     </div>
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-price">
@@ -199,12 +213,6 @@ const ProductForm = () => {
         </div>
   </div>
 </form>
-    ) : (
-      <p>
-          You need to be logged in to share add a product. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-    )}
 </div> 
         )
     }
