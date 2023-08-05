@@ -6,7 +6,7 @@ import { ADD_PRODUCT } from '../utils/mutations';
 import { QUERY_USER } from '../utils/queries';
 
 import Auth from '../utils/auth';
-console.log(Auth.getUser().data.username);
+
 // import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 
 const ProductForm = () => {
@@ -35,15 +35,7 @@ const ProductForm = () => {
         event.preventDefault();
       
         try {
-          console.log({ name: formState.name,
-            description: formState.description,
-            image: formState.image,
-            condition: formState.condition,
-            seller: Auth.getUser().data.username,
-            category: formState.category,
-            keyword: formState.keyword,
-            price,
-            quantity, })
+          
             const { data } = await addProduct({
                 variables: { 
                   name: formState.name,
