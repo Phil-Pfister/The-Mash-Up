@@ -5,6 +5,7 @@ import SignUp from './pages/Signup';
 import Login from './pages/Login';
 import Welcome from './pages/Welcome';
 import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
 {/*import Home from './pages/Home';*/}
 import ProductForm from './pages/ProductForm';
 import {
@@ -52,6 +53,8 @@ function App() {
           <Route path="/products" element={<ProductList />} />
           <Route path="/productsubmission" element={<ProductSubmission/>} />
           <Route path="/addProduct" element={<ProductForm />} />
+          <Route path="/products/details" element={<ProductDetails />} />
+          <Route path="/products/cart" element={<Cart />} />
         </Routes>
       </>
     </Router>
