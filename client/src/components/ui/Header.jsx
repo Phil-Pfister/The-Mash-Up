@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import { useState, useEffect, useRef } from "react";
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth'
 export default function Header() {
   const [isOpen, setIsOpen] = useState("");
@@ -127,6 +128,7 @@ export default function Header() {
         </div>
         {Auth.loggedIn() ? (
           <>
+          <Link to="/addProduct" className="p-2 text-white">Sell Your Product</Link>
           <a href="/home"><p className="p-2 text-white">Home</p></a>
           <a href="/" onClick={Auth.logout}><p className="p-2 text-white">Logout</p></a>
           <a href="/products/cart" className="p-2 pr-5" ><i className="fa-solid fa-cart-shopping text-[#fc2403] text-xl"></i></a>
