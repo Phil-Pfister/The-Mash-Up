@@ -57,6 +57,7 @@ function App() {
     </Router>
     </ApolloProvider>
   );
+  return <ImageUpload />;
 }
 
 export default App;
