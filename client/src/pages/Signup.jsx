@@ -1,29 +1,38 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigation, Route } from 'react-router-dom';
+
+
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
+
 
 const SignUp = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+ const [userData, setUserData] = useState({})
 
-  const handleSignUp = async (event) => {
+
+const [addUser] = useMutation(ADD_USER);
+
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    setUserData({ ...userData, [id]: value, });
+    
+  };
+
+  const handleSubmit = async (event) => {
+
     event.preventDefault();
 
+    
+    
+
     try {
-      // Send the user data to the server's endpoint using axios
-      const response = await axios.post('/api/signup', {
-        username,
-        email,
-        password,
+      //query database
+      const { data } = await addUser({
+        variables: { ...userData },
       });
-
-      console.log('User registered successfully:', response.data);
-
-      // Redirect to the Home page after successful registration
-      history.push('/home');
+      
+      Auth.login(data.addUser.token);
+      
     } catch (error) {
       console.error('Error registering user:', error);
       // Handle error and display appropriate error messages to the user.
@@ -44,7 +53,9 @@ const SignUp = () => {
           py-8
           w-50
           max-w-md
-        " onSubmit={handleSignUp}>
+        " 
+        
+        onSubmit={handleSubmit}>
         <div className="font-medium self-center text-xl sm:text-3xl text-gray-800">Sign up
         </div>
         <div className="mt-10">
@@ -61,8 +72,8 @@ const SignUp = () => {
             placeholder="First Name"
             type="text"
             id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+           
+            onChange={handleInputChange}
           />
         </div>
 
@@ -79,8 +90,8 @@ const SignUp = () => {
             placeholder="Last Name"
             type="text"
             id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+          
+            onChange={handleInputChange}
           />
         </div>
 
@@ -97,8 +108,8 @@ const SignUp = () => {
             placeholder="Email"
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            
+            onChange={handleInputChange}
           />
         </div>
 
@@ -115,8 +126,8 @@ const SignUp = () => {
             placeholder="Username"
             type="text"
             id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            
+            onChange={handleInputChange}
           />
         </div>
 
@@ -133,8 +144,8 @@ const SignUp = () => {
             placeholder="Password"
             type="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            
+            onChange={handleInputChange}
           />
         </div>
 

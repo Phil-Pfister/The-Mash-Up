@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Order } = require('../models');
 const { signToken } = require('../utils/auth');
+const { findOneAndUpdate } = require('../models/Order');
 
 const resolvers = {
   Query: {
@@ -71,30 +72,35 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    addProduct: async (parent, { name, description, image, price, quantity, condition, category, keyword }, context) => {
+    addProduct: async (parent, { name, description, image, condition, seller, category, keyword, price, quantity }) => {
       
-      if (context.user) {
-        
+      
+        console.log(name, description, image, condition, seller, category, keyword, price, quantity);
+
         const product = await Product.create({
           name,
           description,
           image,
-          price,
-          quantity,
           condition,
+          seller,
           category,
           keyword,
-          seller: context.user.username,
+          price,
+          quantity,
         });
+      await User.findOneAndUpdate(
+        { username: seller },
+        { $addToSet: { products: product._id }}
+      )
         console.log(product)
-        await User.findOneAndUpdate(
-          { _id:context.user._id },
-          { $addToSet: { products: product._id} }
-        );
+        // await User.findOneAndUpdate(
+        //   { _id:context.user._id },
+        //   { $addToSet: { products: product._id} }
+        // );
         return product;
-      }
+      
 
-      throw new AuthenticationError('Not logged in');
+      // throw new AuthenticationError('Not logged in');
     },
 
     updateProduct: async (parent, { id, quantity }) => {

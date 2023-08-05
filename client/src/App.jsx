@@ -17,6 +17,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import './App.css';
 import ProductList from './components/ui/ProductList';
+import ProductSubmission from './pages/ProductSubmission';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -50,6 +51,7 @@ function App() {
           {/* Add more routes as needed */}
           <Route path="/login" element={<Login/>} />
           <Route path="/products" element={<ProductList />} />
+          <Route path="/productsubmission" element={<ProductSubmission/>} />
           <Route path="/addProduct" element={<ProductForm />} />
           <Route path="/products/details" element={<ProductDetails />} />
           <Route path="/products/cart" element={<Cart />} />

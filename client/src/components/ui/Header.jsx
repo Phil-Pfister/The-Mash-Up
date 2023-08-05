@@ -138,6 +138,7 @@ export default function Header() {
             <a href="/signup"><p className="text-white">Sign Up</p></a>
             <a href="/login"><p className="text-white">Log In</p></a>
           </>
+
         )}
 
         <SearchBar />
