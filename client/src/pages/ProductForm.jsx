@@ -6,7 +6,6 @@ import { ADD_PRODUCT } from '../utils/mutations';
 import { QUERY_USER } from '../utils/queries';
 
 import Auth from '../utils/auth';
-console.log(Auth.getUser().data.username);
 // import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 
 const ProductForm = () => {

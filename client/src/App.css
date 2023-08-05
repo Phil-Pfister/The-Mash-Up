@@ -7,14 +7,14 @@ body {
 }
 
 .welcome-page {
-    background-image: url('../public/images/welcome.jpg');
+    background-image: url('../src/assets/images/welcome.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .login-page {
-    background-image: url('../public/images/listen.jpg');
+    background-image: url('../src/assets/images/listen.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
