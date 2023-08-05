@@ -95,9 +95,9 @@ export default function Header() {
                       >
                         {item.title}
                         {isOpen === item.title ? (
-                          <i className="fa-solid fa-caret-up pl-2"></i>
+                          <i className="fa-solid fa-caret-up pl-2 text-[#fc2403]"></i>
                         ) : (
-                          <i className="fa-solid fa-caret-down pl-2"></i>
+                          <i className="fa-solid fa-caret-down pl-2 text-[#fc2403]"></i>
                         )}
                       </a>
                     </li>
@@ -126,14 +126,20 @@ export default function Header() {
           </div>
         </div>
         {Auth.loggedIn() ? (
-        <>
+          <>
+          <a href="/home"><p className="p-2 text-white">Home</p></a>
+          <a href="/" onClick={Auth.logout}><p className="p-2 text-white">Logout</p></a>
+          <a href="/products/cart" className="p-2 pr-5" ><i className="fa-solid fa-cart-shopping text-[#fc2403] text-xl"></i></a>
           
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={Auth.logout}>Logout</button>
-        </>
-
+         </>
         ) : (
-          <><p className="text-white" >not logged in</p></>
+          <>
+            <a href="/signup"><p className="text-white p-2">Sign Up</p></a>
+            <a href="/login"><p className="text-white p-2">Log In</p></a>
+          </>
+
         )}
+
         <SearchBar />
       </nav>
     </>
