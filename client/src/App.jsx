@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Welcome from './pages/Welcome';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
+import Account from './pages/Account'
+import OrderConfirmation from './components/ui/AccountSideBar';
 {/*import Home from './pages/Home';*/}
 import ProductForm from './pages/ProductForm';
 import {
@@ -55,6 +57,7 @@ function App() {
           <Route path="/addProduct" element={<ProductForm />} />
           <Route path="/products/details" element={<ProductDetails />} />
           <Route path="/products/cart" element={<Cart />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </>
     </Router>

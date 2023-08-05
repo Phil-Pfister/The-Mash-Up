@@ -95,9 +95,9 @@ export default function Header() {
                       >
                         {item.title}
                         {isOpen === item.title ? (
-                          <i className="fa-solid fa-caret-up pl-2"></i>
+                          <i className="fa-solid fa-caret-up pl-2 text-[#fc2403]"></i>
                         ) : (
-                          <i className="fa-solid fa-caret-down pl-2"></i>
+                          <i className="fa-solid fa-caret-down pl-2 text-[#fc2403]"></i>
                         )}
                       </a>
                     </li>
@@ -127,16 +127,15 @@ export default function Header() {
         </div>
         {Auth.loggedIn() ? (
           <>
-          <i className="fa-regular fa-cart-shopping text-red"></i>
-          <button onClick={Auth.logout}>Logout</button>
+          <a href="/home"><p className="p-2 text-white">Home</p></a>
+          <a href="/" onClick={Auth.logout}><p className="p-2 text-white">Logout</p></a>
+          <a href="/products/cart" className="p-2 pr-5" ><i className="fa-solid fa-cart-shopping text-[#fc2403] text-xl"></i></a>
           </>
           
         ) : (
           <>
-            <a href="/products/cart" ><i className="fa-solid fa-cart-shopping text-[#fc2403]"></i></a>
-
-            <a href="/signup"><p className="text-white">Sign Up</p></a>
-            <a href="/login"><p className="text-white">Log In</p></a>
+            <a href="/signup"><p className="text-white p-2">Sign Up</p></a>
+            <a href="/login"><p className="text-white p-2">Log In</p></a>
           </>
 
         )}
