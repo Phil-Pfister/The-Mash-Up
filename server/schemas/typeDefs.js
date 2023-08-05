@@ -13,7 +13,7 @@ const typeDefs = gql`
     condition: String
     seller: String
     category: String
-    keyword: [String]
+    keyword: String
     
   }
     
@@ -59,12 +59,13 @@ const typeDefs = gql`
     addProduct(
       name: String!
       description: String!
-      image: String
-      price: Int!
-      quantity: Int!
-      condition: String
+      image: String!
+      seller: String!
+      condition: String!
       category: String!
-      keyword: [String]
+      keyword: String
+      price: Int
+      quantity: Int
     ): Product
     updateUser(
       firstName: String

@@ -8,11 +8,24 @@ import { ADD_PRODUCT } from '../utils/mutations';
 // import Auth from '../../utils/auth';
 // import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 
-const ProductForm = (props) => {
-    const [formState, setFormState] = useState({});
-  console.log(formState)
+const ProductForm = () => {
+    const [formState, setFormState] = useState({ category: 'Music'});
 
-    const [addProduct, { error }] = useMutation(ADD_PRODUCT);
+    const [quantity, setQuantity] = useState(0);
+    const [price, setPrice] = useState(0);
+
+    const handleQuantChange = (event) => {
+      setQuantity(+event.target.value);
+    };
+
+    const handlePriceChange = (event) => {
+      setPrice(+event.target.value);
+    }
+
+    // const [numberInput, setNumberInput] = useState({ price: 0, quantity: 0 })
+ 
+
+    const [addProduct] = useMutation(ADD_PRODUCT);
     //     , {
     //     update(cache, { data: { addProduct } }) {
     //         try {
@@ -39,32 +52,36 @@ const ProductForm = (props) => {
         event.preventDefault();
 
         try {
+          console.log({name: formState.name,
+            description: formState.description,
+            image: formState.image,
+            condition: formState.condition,
+            seller: formState.seller,
+            category: formState.category,
+            keyword: formState.keyword, 
+            price, 
+            quantity});
             const { data } = await addProduct({
-                variables: {
-                    name: formState.name,
-                    description: formState.description,
-                    price: formState.price,
-                    quantity: formState.quantity,
-                    image: formState.image,
-                    condition: formState.image,
-                    seller: formState.seller,
-                    category: formState.category,
-                    keyword: formState.keyword,
-                },
-            });
-
-            setProductName('');
-            setProductDescription('');
-            setPrice(0);
-            setQuantity(0);
-            setImage('');
-            setCondition('');
-            setSeller('');
-            setCategory('');
-            setKeyword('');
+                variables: { 
+                  name: formState.name,
+                  description: formState.description,
+                  image: formState.image,
+                  condition: formState.condition,
+                  seller: formState.seller,
+                  category: formState.category,
+                  keyword: formState.keyword, 
+                  },
+                
+                
+                });
+            console.log('data', data);
+            setFormState('');
+            
 
             } catch (err){
+              
                 console.error('err', err);
+                
             }
         };
 
@@ -74,6 +91,10 @@ const ProductForm = (props) => {
                 ...formState,
                 [name]: value,
             });
+            setPrice({
+              ...price
+            });
+            setQuantity({ ...quantity });
         };
 
         return (
@@ -99,7 +120,8 @@ const ProductForm = (props) => {
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-seller">
         Seller
       </label>
-      <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Seller"/>
+      <input onChange={handleChange} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+      name="seller" id="grid-last-name" type="text" placeholder="Seller"/>
     </div>
   </div>
   <div className="flex flex-wrap -mx-3 mb-6">
@@ -167,27 +189,27 @@ const ProductForm = (props) => {
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-price">
         Price
       </label>
-      <input onChange={handleChange} 
+      <input onChange={handlePriceChange} 
       className="appearance-none block w-full bg-gray-200 
       text-gray-700 border border-gray-200 rounded py-3 px-4 
       leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
-      name="price" id="grid-zip" type="text" placeholder="in usd"/>
+      name="price" id="grid-zip" type="number" placeholder="in usd"/>
     </div>
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-keyword">
         Quantity
       </label>
-      <input onChange={handleChange} 
+      <input onChange={handleQuantChange} 
       className="appearance-none block w-full bg-gray-200 text-gray-700
        border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none 
        focus:bg-white focus:border-gray-500" 
-       name="quantity" id="grid-zip" type="text" placeholder="1"/>
+       name="quantity" id="grid-zip" type="number" placeholder="1"/>
     </div>
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
     <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-keyword">
         Push
       </label>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"type="submit">Submit</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
         </div>
   </div>
 </form>
