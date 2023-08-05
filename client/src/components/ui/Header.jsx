@@ -126,14 +126,20 @@ export default function Header() {
           </div>
         </div>
         {Auth.loggedIn() ? (
-        <>
-          
+          <>
+          <i className="fa-regular fa-cart-shopping text-red"></i>
           <button onClick={Auth.logout}>Logout</button>
-        </>
-
+          </>
+          
         ) : (
-          <><p>not logged in</p></>
+          <>
+            <a href="/products/cart" ><i className="fa-solid fa-cart-shopping text-[#fc2403]"></i></a>
+
+            <a href="/signup"><p className="text-white">Sign Up</p></a>
+            <a href="/login"><p className="text-white">Log In</p></a>
+          </>
         )}
+
         <SearchBar />
       </nav>
     </>
