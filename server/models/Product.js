@@ -17,7 +17,7 @@ const productSchema = new Schema({
   },
   price: {
     type: Number,
-    required: true,
+    
     min: 0.99,
   },
   quantity: {
@@ -34,11 +34,11 @@ const productSchema = new Schema({
    required: true,
     
   },
-  keyword: [
-      {
-     type: String,   
-    },
-  ],
+  keyword: {
+    type: String,
+  },
+    
+  
   seller: {
     type: String,
     required: true,

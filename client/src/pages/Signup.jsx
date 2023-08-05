@@ -15,7 +15,7 @@ const [addUser] = useMutation(ADD_USER);
   const handleInputChange = (event) => {
     const { id, value } = event.target;
     setUserData({ ...userData, [id]: value, });
-    console.log(userData);
+    
   };
 
   const handleSubmit = async (event) => {
