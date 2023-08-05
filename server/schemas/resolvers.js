@@ -72,10 +72,10 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    addProduct: async (parent, { name, description, image, condition, seller, category, keyword, price, quantity }, context) => {
+    addProduct: async (parent, { name, description, image, condition, seller, category, keyword, price, quantity }) => {
       
       
-        if (context.user) {
+        console.log(name, description, image, condition, seller, category, keyword, price, quantity);
 
         const product = await Product.create({
           name,
@@ -88,17 +88,16 @@ const resolvers = {
           price,
           quantity,
         });
-        console.log(context.user);
       await User.findOneAndUpdate(
-        {username: context.user.username},
+        { username: seller },
         { $addToSet: { products: product._id }}
       )
         console.log(product)
        
         return product;
-        }
+      
 
-      throw new AuthenticationError('Not logged in');
+      // throw new AuthenticationError('Not logged in');
     },
 
     updateProduct: async (parent, { id, quantity }) => {

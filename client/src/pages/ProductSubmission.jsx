@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation, Route } from 'react-router-dom';
+import { Image } from 'cloudinary-react';
 
 const ProductSubmission = () => {
   const [image, setImage] = useState(null);
@@ -7,7 +8,7 @@ const ProductSubmission = () => {
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(null);
 
-  const ProductSubmission = async () => {
+  const uploadImage = async () => {
     setLoading(true);
     const data = new FormData();
     data.append("file", image);
@@ -77,7 +78,7 @@ const ProductSubmission = () => {
         </header>
         <div className="flex justify-end pb-8 pt-6 gap-4">
           <button
-            onClick={ProductSubmission}
+            onClick={uploadImage}
             className="rounded-sm px-3 py-1 bg-blue-700 hover:bg-blue-500 text-white focus:shadow-outline focus:outline-none disabled:cursor-not-allowed"
             disabled={!image}
           >
