@@ -1,7 +1,6 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import Auth from '../../utils/auth'
 export default function Header() {
   const [isOpen, setIsOpen] = useState("");
@@ -60,7 +59,6 @@ export default function Header() {
   ];
 
   useEffect(() => {
-    
     document.addEventListener("click", handleClickOutside, true)
   }, [])
 
@@ -133,10 +131,7 @@ export default function Header() {
           <a href="/" onClick={Auth.logout}><p className="p-2 text-white">Logout</p></a>
           <a href="/products/cart" className="p-2 pr-5" ><i className="fa-solid fa-cart-shopping text-[#fc2403] text-xl"></i></a>
           
-          <Link to="/addProduct" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Sell a product</Link>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2" onClick={Auth.logout}>Logout</button>
-          </>
-
+         </>
         ) : (
           <>
             <a href="/signup"><p className="text-white p-2">Sign Up</p></a>
