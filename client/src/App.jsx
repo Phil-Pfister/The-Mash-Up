@@ -1,15 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/ui/Header";
+import Home from "./pages/Home";
 import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
-import Welcome from "./pages/Welcome";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Account from "./pages/Account";
-import OrderConfirmation from "./components/ui/AccountSideBar";
 import PurchaseHistory from "./components/ui/PurchaseHistory";
-import SaleHistory from "./components/ui/SaleHistory";
+import SaleHistory from "./components/ui/ProductOrders";
 
 {
   /*import Home from './pages/Home';*/
@@ -54,10 +53,8 @@ function App() {
         <>
           <Header />
           <Routes>
-            <Route exact path="/" element={<Welcome />} />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/signup" element={<SignUp />} />
-            {/*<Route exact path="/home" component={Home} />*/}
-            {/* Add more routes as needed */}
             <Route path="/login" element={<Login />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/productsubmission" element={<ProductSubmission />} />

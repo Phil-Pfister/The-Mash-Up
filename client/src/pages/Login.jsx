@@ -206,9 +206,7 @@ function Login(props) {
           >
             <span className="ml-2 text-lg">
               You don't have an account?
-              <a href="#" className="text-lg ml-2 text-red-500 font-semibold">
-              <Link to="/signup">Register Now</Link>
-              </a>
+              <Link to="/signup" className="text-lg ml-2 text-[#fc2403] font-semibold">Register Now</Link>
             </span>
           </p>
         </div>

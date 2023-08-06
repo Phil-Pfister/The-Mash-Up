@@ -1,4 +1,4 @@
-export default function SaleHistory() {
+export default function ProductOrders() {
 
   return (
     <>
