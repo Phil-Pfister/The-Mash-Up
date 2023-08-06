@@ -1,4 +1,4 @@
-import drums from "../assets/images/drums.jpg";
+import drums from '../assets/images/drums.jpg'
 import Comments from "../components/ui/Comments";
 import { useState } from "react";
 
