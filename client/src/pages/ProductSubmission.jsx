@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation, Route } from 'react-router-dom';
 import { Image } from 'cloudinary-react';
+import "dotenv";
 
 const ProductSubmission = () => {
   const [image, setImage] = useState(null);
@@ -14,14 +15,14 @@ const ProductSubmission = () => {
     data.append("file", image);
     data.append(
       "upload_preset",
-      process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      "hjgaxcrg"
     );
-    data.append("cloud_name", process.env.REACT_APP_CLOUDINARY_CLOUD_NAME);
+    data.append("cloud_name", "dzcqdcvqv");
     data.append("folder", "Cloudinary-React");
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        `https://api.cloudinary.com/v1_1/dzcqdcvqv/image/upload`,
         {
           method: "POST",
           body: data,
@@ -100,7 +101,7 @@ const ProductSubmission = () => {
           url && (
             <div className="pb-8 pt-4">
               <Image
-                cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
+                cloudName={"dzcqdcvqv"}
                 publicId={url}
               />
             </div>
