@@ -3,6 +3,8 @@ import { QUERY_USER } from "../utils/queries";
 import Auth from '../utils/auth';
 
 
+
+
 const UserProducts = (props) => {
     const  { loading, data } = useQuery(QUERY_USER);
     const userData = data?.user || {};
@@ -12,24 +14,33 @@ const UserProducts = (props) => {
 
     return (
         <main>
-          <div className="flex-row justify-center">
+          <div className="flex flex-col justify-center">
           {Auth.loggedIn() ? (
-            <div className="col-12 col-md-8 mb-3">
+            <>
+            <div className="p-8">
+              <p className="text-2xl text-white text-center" >Welcome {userData.username}</p>
+            </div>
+            
+            <div className="col-12 col-md-8 mb-3 flex flex-row flex-wrap">
+            
             {userData.products && userData.products.map((product) => {
               return (
-                <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl p-6">
+               
+                <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl m-3 p-6">
                 <div className="text-white" key={product._id}>{product.name}</div>
                 <div className="text-white">{product.description}</div>
                 <img
                         src={product.image}
-                        alt="Just a flower"
+                        alt="product image"
                         className=" w-full   object-fill  rounded-2xl"
                       ></img>
                 </div>
+                
           )})};
                
               
             </div>
+            </>
           ) : (
             <h3>You're Not Logged in</h3>)}
           </div>

@@ -128,6 +128,7 @@ export default function Header() {
         </div>
         {Auth.loggedIn() ? (
           <>
+          <Link to="/user" className="p-2 text-white">Your Profile</Link>
           <Link to="/addProduct" className="p-2 text-white">Sell Your Product</Link>
           <a href="/home"><p className="p-2 text-white">Home</p></a>
           <a href="/" onClick={Auth.logout}><p className="p-2 text-white">Logout</p></a>
