@@ -8,6 +8,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Account from "./pages/Account";
 import OrderConfirmation from "./components/ui/AccountSideBar";
+import PurchaseHistory from "./components/ui/PurchaseHistory";
+import SaleHistory from "./components/ui/SaleHistory";
 {
   /*import Home from './pages/Home';*/
 }
@@ -60,6 +62,8 @@ function App() {
             <Route path="/products/details" element={<ProductDetails />} />
             <Route path="/products/cart" element={<Cart />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/account/purchase-history" element={<PurchaseHistory />} />
+            <Route path="/account/sale-history" element={<SaleHistory />} />
           </Routes>
         </>
       </Router>
