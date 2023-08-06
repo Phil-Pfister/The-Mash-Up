@@ -1,15 +1,14 @@
 import AccountSideBar from "../components/ui/AccountSideBar";
 import React from "react";
 import { useQuery } from "@apollo/client";
-import SaleHistory from "../components/ui/SaleHistory";
+import ProductOrders from "../components/ui/ProductOrders";
 import PurchaseHistory from "../components/ui/PurchaseHistory";
-import Home from "./Home";
 import { useState } from "react";
 
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
 
 export default function Account() {
-  const [accountPage, setAccountPage] = useState("Home");
+  const [accountPage, setAccountPage] = useState("Product Orders");
 
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
   const products = data?.products || [];
@@ -24,16 +23,11 @@ export default function Account() {
         accountPage={accountPage}
         setAccountPage={setAccountPage}
       />
-      {accountPage === "Home" ? (
-        <Home />
-      ) : accountPage === "Purchase History" ? (
-        <PurchaseHistory />
-      ) : accountPage === "Sale History" ? (
-        <SaleHistory />
+      {accountPage === "Product Orders" ? (
+        <ProductOrders />
       ) : (
-        <Home />
-      )}
-      <SaleHistory />
+        <PurchaseHistory />
+      ) }
     </>
   );
 }
