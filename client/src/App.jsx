@@ -8,6 +8,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Account from "./pages/Account";
 import OrderConfirmation from "./components/ui/AccountSideBar";
+
 {
   /*import Home from './pages/Home';*/
 }
@@ -22,6 +23,8 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import ProductList from "./components/ui/ProductList";
 import ProductSubmission from "./pages/ProductSubmission";
+import UserProducts from "./pages/UserProducts";
+import SingleProduct from "./pages/SingleProduct";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -60,6 +63,8 @@ function App() {
             <Route path="/products/details" element={<ProductDetails />} />
             <Route path="/products/cart" element={<Cart />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/user" element={<UserProducts />} />
+            <Route path="/product/:productId" element={<SingleProduct />} />
           </Routes>
         </>
       </Router>
