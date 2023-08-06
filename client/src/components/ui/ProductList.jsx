@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-
+import { Link } from "react-router-dom";
 import { QUERY_ALL_PRODUCTS } from "../../utils/queries";
 
 const ProductList = () => {
@@ -17,6 +17,7 @@ const ProductList = () => {
       <div className="w-full flex flex-wrap">
         {products &&
           products.map((product) => (
+            <Link to={`/product/${product._id}`}>
             <div key={product._id} className="m-5 h-[70%]">
               <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl p-6">
                 <div className="flex flex-col ">
@@ -149,6 +150,7 @@ const ProductList = () => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
       </div>
     </>

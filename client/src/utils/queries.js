@@ -28,23 +28,43 @@ export const QUERY_ALL_PRODUCTS = gql`
   }
 `;
 
+export const QUERY_SINGLE_PRODUCT = gql`
+query getSingleProduct($productId: ID!) {
+  product(productId: $productId) {
+      _id
+      name
+      description
+      price
+      quantity
+      image
+      condition
+      seller
+      category
+      keyword
+  
+  }
+}
+
+`;
+
 
 
 export const QUERY_USER = gql`
   {
     user {
       username
+      products {
+        _id
+        name
+        description
+        price
+        quantity
+        image
+      }
       orders {
         _id
         purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
+        
       }
     }
   }
