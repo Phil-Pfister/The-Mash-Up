@@ -30,6 +30,7 @@ const typeDefs = gql`
     lastName: String
     username: String
     email: String
+    wishlist: [String]
     products: [Product]
     orders: [Order]
   }
