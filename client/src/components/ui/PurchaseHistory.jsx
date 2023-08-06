@@ -5,7 +5,7 @@ export default function PurchaseHistory() {
           <div className="bg-gray-300 p-8 m-14 ml-[18rem] rounded-md w-[70%]">
             <div className=" flex items-center justify-between pb-6">
               <div>
-                <h2 className="text-gray-600 font-semibold text-xl">Product Orders</h2>
+                <h2 className="text-gray-600 font-semibold text-xl">Purchase History</h2>
                 <span className="text-xs">All products</span>
               </div>
               <div className="flex items-center justify-between">

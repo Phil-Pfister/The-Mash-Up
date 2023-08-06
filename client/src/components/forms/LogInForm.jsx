@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
-import { LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 
 
-export default function Welcome(props) {
+export default function LogInForm(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
 
@@ -33,13 +33,12 @@ export default function Welcome(props) {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 welcome-page">
         <div
           className="
           border-8
-          border-red-500
-          backdrop-blur 
-          bg-white/50
+          rounded-md
+          border-black
+          bg-gray-400
           flex flex-col
           bg-gray-100
           shadow-md
@@ -82,7 +81,7 @@ export default function Welcome(props) {
                     text-gray-400
                   "
                   >
-                    <i className="fas fa-at text-red-500"></i>
+                    <i className="fas fa-at text-[#fc2403]"></i>
                   </div>
 
                   <input
@@ -127,7 +126,7 @@ export default function Welcome(props) {
                   
                   >
                     <span>
-                      <i className="fas fa-lock text-red-500"></i>
+                      <i className="fas fa-lock text-[#fc2403]"></i>
                     </span>
                   </div>
 
@@ -162,7 +161,7 @@ export default function Welcome(props) {
                   focus:outline-none
                   text-white text-sm
                   sm:text-base
-                  bg-red-500
+                  bg-[#fc2403]
                   hover:bg-red-600
                   py-2
                   w-full
@@ -189,7 +188,6 @@ export default function Welcome(props) {
               </div>
             </form>
           </div>
-        </div>
         <div className="flex justify-center items-center mt-6">
           <p
             href="#"
@@ -204,15 +202,15 @@ export default function Welcome(props) {
           >
             <span className="ml-2 text-lg">
               You don't have an account?
-              <Link to="/signup" className="text-lg ml-2 text-red-500 font-semibold">
+              <Link to="/signup" className="text-lg ml-2 text-[#fc2403] font-semibold">
                 Register now
               </Link>
             </span>
           </p>
         </div>
       
-      </div>
-     
+        </div>
+
     </>
   );
 }

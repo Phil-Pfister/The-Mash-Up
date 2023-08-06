@@ -1,5 +1,4 @@
-import PurchaseHistory from "./PurchaseHistory";
-import SaleHistory from "./SaleHistory";
+
 import React, { useState } from "react";
 
 export default function AccountSideBar({ accountPage, setAccountPage }) {

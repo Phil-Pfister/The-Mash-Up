@@ -1,48 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
-
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const SignUp = () => {
- const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState({});
 
-
-const [addUser] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
-    setUserData({ ...userData, [id]: value, });
-    
+    setUserData({ ...userData, [id]: value });
   };
 
   const handleSubmit = async (event) => {
-
     event.preventDefault();
-
-    
-    
 
     try {
       //query database
       const { data } = await addUser({
         variables: { ...userData },
       });
-      
+
       Auth.login(data.addUser.token);
-      
     } catch (error) {
-      console.error('Error registering user:', error);
+      console.error("Error registering user:", error);
       // Handle error and display appropriate error messages to the user.
     }
   };
 
   return (
-
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <form className="
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#fc2403]">
+      <form
+        className="
           flex flex-col
           bg-gray-100
           shadow-md
@@ -51,17 +42,24 @@ const [addUser] = useMutation(ADD_USER);
           md:px-8
           lg:px-10
           py-8
-          w-50
+          w-75
           max-w-md
-        " 
-        
-        onSubmit={handleSubmit}>
-        <div className="font-medium self-center text-xl sm:text-3xl text-gray-800">Sign up
+        "
+        onSubmit={handleSubmit}
+      >
+        <div className="font-medium self-center text-xl sm:text-3xl text-gray-800">
+          Sign up
         </div>
         <div className="mt-10">
-        <div className="flex flex-col mb-5">
-          <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="firstName">First Name:</label>
-          <input className="text-sm
+          <div className="flex flex-col mb-5">
+            <label
+              className="mb-1 text-xs tracking-wide text-gray-600"
+              htmlFor="firstName"
+            >
+              First Name:
+            </label>
+            <input
+              className="text-sm
                     placeholder-gray-500
                     pl-10
                     pr-4
@@ -69,17 +67,45 @@ const [addUser] = useMutation(ADD_USER);
                     w-full
                     py-2
                     focus:outline-none focus:border-red-400"
-            placeholder="First Name"
-            type="text"
-            id="firstName"
-           
-            onChange={handleInputChange}
-          />
-        </div>
+              placeholder="First Name"
+              type="text"
+              id="firstName"
+              onChange={handleInputChange}
+            />
+          </div>
 
-        <div className="flex flex-col mb-5">
-          <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="lastName">Last Name:</label>
-          <input className="text-sm
+          <div className="flex flex-col mb-5">
+            <label
+              className="mb-1 text-xs tracking-wide text-gray-600"
+              htmlFor="lastName"
+            >
+              Last Name:
+            </label>
+            <input
+              className="text-sm
+                  placeholder-gray-500
+                  pl-10
+                  pr-4
+                  border border-gray-400
+                  w-full
+                  py-2
+                  focus:outline-none focus:border-red-400"
+              placeholder="Last Name"
+              type="text"
+              id="lastName"
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="flex flex-col mb-5">
+            <label
+              className="mb-1 text-xs tracking-wide text-gray-600"
+              htmlFor="email"
+            >
+              Email:
+            </label>
+            <input
+              className="text-sm
                     placeholder-gray-500
                     pl-10
                     pr-4
@@ -87,17 +113,22 @@ const [addUser] = useMutation(ADD_USER);
                     w-full
                     py-2
                     focus:outline-none focus:border-red-400"
-            placeholder="Last Name"
-            type="text"
-            id="lastName"
-          
-            onChange={handleInputChange}
-          />
-        </div>
+              placeholder="Email"
+              type="email"
+              id="email"
+              onChange={handleInputChange}
+            />
+          </div>
 
-        <div className="flex flex-col mb-5">
-          <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="email">Email:</label>
-          <input className="text-sm
+          <div className="flex flex-col mb-5">
+            <label
+              className="mb-1 text-xs tracking-wide text-gray-600"
+              htmlFor="username"
+            >
+              Username:
+            </label>
+            <input
+              className="text-sm
                     placeholder-gray-500
                     pl-10
                     pr-4
@@ -105,17 +136,22 @@ const [addUser] = useMutation(ADD_USER);
                     w-full
                     py-2
                     focus:outline-none focus:border-red-400"
-            placeholder="Email"
-            type="email"
-            id="email"
-            
-            onChange={handleInputChange}
-          />
-        </div>
+              placeholder="Username"
+              type="text"
+              id="username"
+              onChange={handleInputChange}
+            />
+          </div>
 
-        <div className="flex flex-col mb-5">
-          <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="username">Username:</label>
-          <input className="text-sm
+          <div className="flex flex-col mb-5">
+            <label
+              className="mb-1 text-xs tracking-wide text-gray-600"
+              htmlFor="password"
+            >
+              Password:
+            </label>
+            <input
+              className="text-sm
                     placeholder-gray-500
                     pl-10
                     pr-4
@@ -123,50 +159,36 @@ const [addUser] = useMutation(ADD_USER);
                     w-full
                     py-2
                     focus:outline-none focus:border-red-400"
-            placeholder="Username"
-            type="text"
-            id="username"
-            
-            onChange={handleInputChange}
-          />
-        </div>
+              placeholder="Password"
+              type="password"
+              id="password"
+              onChange={handleInputChange}
+            />
+          </div>
 
-        <div className="flex flex-col mb-5">
-          <label className="mb-1 text-xs tracking-wide text-gray-600" htmlFor="password">Password:</label>
-          <input className="text-sm
-                    placeholder-gray-500
-                    pl-10
-                    pr-4
-                    border border-gray-400
-                    w-full
-                    py-2
-                    focus:outline-none focus:border-red-400"
-            placeholder="Password"
-            type="password"
-            id="password"
-            
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <button className="flex
+          <button
+            className="flex
                   mt-2
                   items-center
                   justify-center
                   focus:outline-none
                   text-white text-sm
                   sm:text-base
-                  bg-red-500
-                  hover:bg-red-600
+                  bg-[#fc2403]
+                  hover:bg-black
+                  
                   py-2
                   w-full
                   transition
                   duration-150
-                  ease-in" type="submit">SUBMIT</button>
+                  ease-in"
+            type="submit"
+          >
+            SUBMIT
+          </button>
         </div>
       </form>
     </div>
-    
   );
 };
 
