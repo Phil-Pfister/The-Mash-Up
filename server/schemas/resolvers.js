@@ -11,16 +11,18 @@ const resolvers = {
 
       return Product.find(args);
     },
-    product: async (parent, { id }) =>
-      Product.findById(id),
-
+    product: async (parent, { productId }) => {
+    
+      return Product.findOne({ _id: productId});
+    },
     user: async (parent, args, context) => {
+     
       if (context.user) {
-        const user = await User.findById(context.user.id).populate({
-          path: 'products.name',
+        const user = await User.findById(context.user._id).populate({
+          path: 'products',
           
         });
-
+        console.log(context.user)
         
 
         return user;

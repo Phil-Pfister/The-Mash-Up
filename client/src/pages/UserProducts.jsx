@@ -3,8 +3,8 @@ import { QUERY_USER } from "../utils/queries";
 import Auth from '../utils/auth';
 
 
-const UserProducts = () => {
-    const  { data } = useQuery(QUERY_USER);
+const UserProducts = (props) => {
+    const  { loading, data } = useQuery(QUERY_USER);
     const userData = data?.user || {};
     console.log(userData);
    
@@ -15,8 +15,19 @@ const UserProducts = () => {
           <div className="flex-row justify-center">
           {Auth.loggedIn() ? (
             <div className="col-12 col-md-8 mb-3">
-             
-               <h1>user</h1>
+            {userData.products && userData.products.map((product) => {
+              return (
+                <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl p-6">
+                <div className="text-white" key={product._id}>{product.name}</div>
+                <div className="text-white">{product.description}</div>
+                <img
+                        src={product.image}
+                        alt="Just a flower"
+                        className=" w-full   object-fill  rounded-2xl"
+                      ></img>
+                </div>
+          )})};
+               
               
             </div>
           ) : (
