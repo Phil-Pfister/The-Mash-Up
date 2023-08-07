@@ -28,6 +28,7 @@ import UserProducts from "./pages/UserProducts";
 import SingleProduct from "./pages/SingleProduct";
 import ProductSearch from "./pages/ProductSearch";
 
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -68,6 +69,7 @@ function App() {
             <Route path="/user" element={<UserProducts />} />
             <Route path="/product/:productId" element={<SingleProduct />} />
             <Route path="/productsearch/:searchKeyword" element={<ProductSearch />} />
+           
           </Routes>
         </>
       </Router>
