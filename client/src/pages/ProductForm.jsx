@@ -108,7 +108,7 @@ const ProductForm = () => {
 
       navigate("/products");
 
-      navigate("/products");
+      
     } catch (err) {
       console.error("err", err);
     }
