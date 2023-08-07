@@ -17,8 +17,8 @@ const ProductList = () => {
       <div className="w-full flex flex-wrap">
         {products &&
           products.map((product) => (
-            <Link to={`/product/${product._id}`}>
-            <div key={product._id} className="m-5 h-[70%]">
+            <Link key={product._id} to={`/product/${product._id}`}>
+            <div  className="m-5 h-[70%]">
               <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl p-6">
                 <div className="flex flex-col ">
                   <div className="">

@@ -1,7 +1,16 @@
+
+import { Link } from "react-router-dom";
+
 export default function Cart() {
+
+  function checkout() {
+    console.log("checkout");
+  }
+
+
   return (
     <div className="relative font-poppins">
-      <div className="fixed inset-0 bg-gray-700 opacity-25"></div>
+      <div className="AZfixed inset-0 bg-gray-700 opacity-25"></div>
       <div className="fixed top-0 bottom-0 right-0 z-10 w-full max-w-xl overflow-y-scroll bg-white ">
         <div className="p-6 bg-neutral-400 md:pt-12 md:pb-6 md:px-12 ">
           <div className="text-right">
@@ -152,8 +161,11 @@ export default function Cart() {
             Shipping calculated at checkout period.
           </p>
           <div className="flex items-center justify-center mt-6">
-            <button className="w-full py-3 text-lg font-medium bg-[#fc2403] rounded-md text-gray-50 hover:bg-black">
+            <button className="w-full py-3 text-lg font-medium bg-[#fc2403] rounded-md text-gray-50 hover:bg-black"
+            onClick={checkout}>
+              <Link to="/checkout">
               Checkout
+              </Link>
             </button>
           </div>
           <div className="flex items-center justify-center mt-6">

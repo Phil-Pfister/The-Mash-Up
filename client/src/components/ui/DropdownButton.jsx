@@ -52,32 +52,3 @@ export default function DropdownButton() {
   </div>
   );
 }
-
-// function toggleDropdown(item) {
-  //   return dropdownMenu.map((item, i) => { 
-  //       
-
-  // return dropdownMenu.map((item, i) => {
-  //   const [isOpen, setIsOpen] = useState(false);
-
-  //   return (
-  //     <div key={item.id} className="flex flex-row dropdown-button mx-2 bg-black">
-  //       <button
-  //         className="text-white bg-black-700 hover:bg-black-800 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-black-600 dark:hover:bg-black-700 dark:focus:ring-black-800"
-  //         type="button"
-  //         onClick={() => setIsOpen((prevState) => {
-  //           !prevState
-  //           console.log(isOpen);
-  //       })}
-  //       >
-  //         {item.title}
-  //         {!isOpen ? (
-  //          
-
-  //         )}
-
-  //         {isOpen && toggleDropdown(item)}
-  //       </button>
-  //     </div>
-  //   );
-  // });
