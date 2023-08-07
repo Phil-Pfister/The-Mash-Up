@@ -38,7 +38,7 @@ export default function ProductDetails() {
   return (
     <>
       <section className="py-20">
-        <div className="container bg-gray-200 rounded p-4 mx-auto">
+        <div className="container bg-gray-200 rounded p-8 mx-auto">
           <div className="max-w-xl lg:max-w-6xl mx-auto">
             <div className="flex flex-wrap -mx-4 mb-12">
               <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
@@ -85,40 +85,9 @@ export default function ProductDetails() {
                   <p className="font-bold mb-2">{product.description}</p>
                  
                   <div className="flex flex-wrap mb-4">
-                    {/* <div className="w-full sm:w-auto mb-4 sm:mb-0 sm:mr-4">
-                      Input conditional logic for this to render if there are multiple items to purchase
-                      <span className="block text-sm font-black mb-2">Amount</span>
-                      <div className="flex h-12 w-24 px-2 items-center justify-between border-2 border-black rounded-md">
-                        <button className="flex w-3.5 h-3.5 px-px items-center justify-center bg-black hover:bg-indigo-500 rounded transition duration-100">
-                          <div className="h-px mx-px w-full bg-white"></div>
-                        </button>
-                        <input className="w-10 text-center text-sm font-bold placeholder-black text-black outline-none" type="number" placeholder="2">
-                          </input>
-                        <button className="relative flex w-3.5 h-3.5 px-px py-px items-center justify-center bg-black hover:bg-indigo-500 rounded transition duration-100">
-                          <div className="relative h-full w-full py-px">
-                            <div className="absolute top-1/2 left-0 h-px w-full bg-white"></div>
-                            <div className="inline-block max-w-max mx-auto h-full bg-white">
-                              <div className="inline-block px-px"></div>
-                            </div>
-                          </div>
-                        </button>
-                      </div>
-                    </div> */}
+                 
                     <div className="w-full sm:w-auto">
-  {/* Input conditional logic to show this if it is a clothing item */}
-                      {/* <span className="block text-sm font-black mb-2">Size</span>
-                      <div className="group relative h-12 w-32 border-2 border-black rounded-md overflow-hidden">
-                        <select className="w-full h-full px-4 text-sm font-bold appearance-none outline-none" name="" id="">
-                          <option value="1">Small</option>
-                          <option value="1">Medium</option>
-                          <option value="1">Large</option>
-                        </select>
-                        <span className="absolute top-1/2 right-0 mr-3 transform -translate-y-1/2 text-black group-hover:text-indigo-500">
-                          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.94667 0.453308H4.79333H1.05333C0.413333 0.453308 0.0933335 1.22664 0.546667 1.67997L4 5.13331C4.55333 5.68664 5.45333 5.68664 6.00667 5.13331L7.32 3.81997L9.46 1.67997C9.90667 1.22664 9.58667 0.453308 8.94667 0.453308Z" fill="currentColor"></path>
-                          </svg>
-                        </span>
-                      </div> */}
+
                     </div>
                   </div>
                   <div className="flex flex-wrap sm:flex-nowrap items-center -mx-2 mb-6 mt-20">
