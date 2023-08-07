@@ -8,7 +8,7 @@ export default function Comments() {
                      <div className="flex flex-col md:flex-row justify-between w-full">
                          <div className="flex flex-row justify-between items-start">
                              <p className="text-xl md:text-2xl font-medium leading-normal text-black ">Beautiful addition to the theme</p>
-                             <button onClick="showMenu(true)" className="ml-4 md:hidden">
+                             <button className="ml-4 md:hidden">
                                  <svg id="closeIcon" className="hidden" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                      <path d="M15 12.5L10 7.5L5 12.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                                  </svg>
@@ -84,7 +84,7 @@ export default function Comments() {
                          <div className="flex flex-col md:flex-row flex justify-between w-full">
                              <div className="flex flex-row justify-between items-start">
                                  <p className="text-xl md:text-2xl font-medium leading-normal text-black ">Comfortable and minimal, just how I like it!</p>
-                                 <button onClick="showMenu2(true)" className="ml-4 md:hidden">
+                                 <button className="ml-4 md:hidden">
                                      <svg id="closeIcon2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                          <path d="M15 12.5L10 7.5L5 12.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                                      </svg>
