@@ -7,8 +7,8 @@ export default function Comments() {
                  <div className="w-full flex justify-start items-start flex-col bg-gray-50 p-8">
                      <div className="flex flex-col md:flex-row justify-between w-full">
                          <div className="flex flex-row justify-between items-start">
-                             <p className="text-xl md:text-2xl font-medium leading-normal text-black ">Beautiful addition to the theme</p>
-                             <button onClick="showMenu(true)" className="ml-4 md:hidden">
+                             <p className="text-xl md:text-2xl font-medium leading-normal text-black ">Great Seller!</p>
+                             <button className="ml-4 md:hidden">
                                  <svg id="closeIcon" className="hidden" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                      <path d="M15 12.5L10 7.5L5 12.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                                  </svg>
@@ -67,7 +67,7 @@ export default function Comments() {
                          </div>
                      </div>
                      <div id="menu" className="md:block">
-                         <p className="mt-3 text-base leading-normal text-gray-600  w-full md:w-9/12 xl:w-5/6">When you want to decorate your home, the idea of choosing a decorative theme can seem daunting. Some themes seem to have an endless amount of pieces, while others can feel hard to accomplish</p>
+                         <p className="mt-3 text-base leading-normal text-gray-600  w-full md:w-9/12 xl:w-5/6">My experience buying from Jimmih was amazing. </p>
                         
                          <div className="mt-6 flex justify-start items-center flex-row space-x-2.5">
                              <div>
@@ -83,8 +83,8 @@ export default function Comments() {
                      <div className="w-full flex justify-start items-start flex-col bg-gray-50 md:px-8 py-8">
                          <div className="flex flex-col md:flex-row flex justify-between w-full">
                              <div className="flex flex-row justify-between items-start">
-                                 <p className="text-xl md:text-2xl font-medium leading-normal text-black ">Comfortable and minimal, just how I like it!</p>
-                                 <button onClick="showMenu2(true)" className="ml-4 md:hidden">
+                                 <p className="text-xl md:text-2xl font-medium leading-normal text-black ">Excellent guy to buy from!</p>
+                                 <button className="ml-4 md:hidden">
                                      <svg id="closeIcon2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                          <path d="M15 12.5L10 7.5L5 12.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                                      </svg>
@@ -143,7 +143,7 @@ export default function Comments() {
                              </div>
                          </div>
                          <div id="menu2" className="hidden md:block">
-                             <p className="mt-3 text-base leading-normal text-gray-600  w-full md:w-9/12 xl:w-5/6">This style relies more on neutral colors with little to no embellishment on furniture. Lighter fabrics, such as silk and cotton, are popular, as are lighter colors in wood and metal.</p>
+                             <p className="mt-3 text-base leading-normal text-gray-600  w-full md:w-9/12 xl:w-5/6">I bought a bass from him about 6 months ago and everything was provided AS ADVERTISED</p>
                             
                              <div className="mt-6 flex justify-start items-center flex-row space-x-2.5">
                                  <div>
