@@ -101,12 +101,12 @@ const resolvers = {
           price,
           quantity,
         });
-        console.log(context.user);
+        
       await User.findOneAndUpdate(
         {username: context.user.username},
         { $addToSet: { products: product._id }}
       )
-        console.log(product)
+       
         // await User.findOneAndUpdate(
         //   { _id:context.user._id },
         //   { $addToSet: { products: product._id} }

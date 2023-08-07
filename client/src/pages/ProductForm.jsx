@@ -121,7 +121,7 @@ const ProductForm = () => {
             
 
 
-      navigate("/products");
+      
     } catch (err) {
       console.error("err", err);
     }
@@ -365,6 +365,7 @@ const ProductForm = () => {
           url && (
             <div className="pb-8 pt-4">
               <Image
+              className="max-h-6"
                 cloudName={"dzcqdcvqv"}
                 publicId={url}
               />

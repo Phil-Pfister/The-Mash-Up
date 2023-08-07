@@ -158,7 +158,7 @@ export default function Header() {
             <Link to="/signup">
               <p className="text-white p-2">Sign Up</p>
             </Link>
-            <Link to="/login">
+            <Link to="/">
               <p className="text-white p-2">Log In</p>
             </Link>
           </>

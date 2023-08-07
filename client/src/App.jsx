@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/ui/Header";
 import Home from "./pages/Home";
 import SignUp from "./pages/Signup";
-import Login from "./pages/Login";
+
 import Cart from "./components/ui/Cart";
 import Account from "./pages/Account";
 import PurchaseHistory from "./components/ui/PurchaseHistory";
@@ -57,7 +57,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
+            
             <Route path="/products" element={<ProductList />} />
             <Route path="/productsubmission" element={<ProductSubmission />} />
             <Route path="/addProduct" element={<ProductForm />} />

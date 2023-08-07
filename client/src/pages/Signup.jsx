@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-
+import { useNavigation } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const SignUp = () => {
+  const navigate = useNavigation("/products");
   const [userData, setUserData] = useState({});
 
   const [addUser] = useMutation(ADD_USER);
