@@ -11,6 +11,7 @@ export default function SearchBar() {
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
+        event.preventDefault();
         navigate(`/productsearch/${search}`);
 
         setSearch("");
@@ -19,10 +20,11 @@ export default function SearchBar() {
         setSearch(event.target.value);
     }
     
+    
 
     return (
         <>
-            <form className='max-w-xl mx-auto'>
+            <form onSubmit={handleSubmit} className='max-w-xl mx-auto'>
                 <div className="rounded-md relative flex items-center w-full h-10 focus-within:shadow-lg bg-white overflow-hidden">
                     <button type="submit" className="grid place-items-center h-full w-12 text-gray-300 bg-[#fc2403]">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -32,7 +34,7 @@ export default function SearchBar() {
 
                     <input
                     onChange={handleChange}
-                    onSubmit={handleSubmit}
+                    
                     className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
                     type="text"
                     id="search"

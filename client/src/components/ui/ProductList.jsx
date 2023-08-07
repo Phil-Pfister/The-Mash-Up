@@ -76,7 +76,7 @@ const ProductList = () => {
                         </div>
                       </div>
                       <div className="text-xl text-white font-semibold mt-1">
-                        $240.00
+                        ${product.price}.00
                       </div>
                       <div className="lg:flex  py-4  text-sm text-gray-600">
                         {/* <div className="flex-1 inline-flex items-center  mb-3"> */}

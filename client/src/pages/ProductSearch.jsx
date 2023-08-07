@@ -17,7 +17,7 @@ const ProductSearch = () => {
 
   return (
     <>
-    <h2 className="text-[50px] font-bold">Search Results</h2>
+    <h2 className="text-[50px] font-bold">Search Results for {searchKeyword}</h2>
       <div className="w-full flex flex-wrap">
         {searched &&
           searched.map((searched) => (
