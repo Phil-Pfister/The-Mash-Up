@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_PRODUCT } from "../utils/queries";
+import { Link } from 'react-router-dom';
+
 
 export default function ProductDetails() {
   const [openTab, setOpenTab] = useState("Description");
@@ -14,7 +16,6 @@ export default function ProductDetails() {
   });
   console.log(data);
   const product = data?.product || {};
-  
 
   function handleTabChange(tab) {
     setOpenTab(tab);
@@ -23,16 +24,15 @@ export default function ProductDetails() {
 
   function Description() {
     return (
-<div>
-                  <h4 className="text-xl font-black mb-3">
-                    {product.name}
-                  </h4>
-                  <p className="text-lg font-bold">
-                    {product.description}
-                  </p>
-                </div>
-    )
+      <div>
+        <h4 className="text-xl font-black mb-3">{product.name}</h4>
+        <p className="text-lg font-bold">{product.description}</p>
+      </div>
+    );
+  }
 
+  function addToCart() {
+    console.log('hello');
   }
 
   return (
@@ -55,64 +55,6 @@ export default function ProductDetails() {
                       ></img>
                     </div>
                   </a>
-                  {/* <div className="flex flex-wrap -mx-3 -mb-3 justify-between">
-                    {/* <div className="w-1/2 xs:w-1/4 px-3 mb-3">
-                      <a
-                        className="relative group block h-24 w-full bg-blueGray-900 rounded-md"
-                        href="#"
-                      >
-                        <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                          <img
-                            className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
-                            src={drums}
-                            alt=""
-                          ></img>
-                        </div>
-                      </a>
-                    </div> */}
-                    {/* <div className="w-1/2 xs:w-1/4 px-3 mb-3">
-                      <a
-                        className="relative group block h-24 w-full bg-blueGray-900 rounded-md"
-                        href="#"
-                      >
-                        <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                          <img
-                            className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
-                            src={drums}
-                            alt=""
-                          ></img>
-                        </div>
-                      </a>
-                    </div> */}
-                    {/* <div className="w-1/2 xs:w-1/4 px-3 mb-3">
-                      <a
-                        className="relative group block h-24 w-full bg-blueGray-900 rounded-md"
-                        href="#"
-                      >
-                        <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                          <img
-                            className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
-                            src={drums}
-                            alt=""
-                          ></img>
-                        </div>
-                      </a>
-                    </div> */}
-                    {/* <div className="w-1/2 xs:w-1/4 px-3 mb-3">
-                      <a
-                        className="relative group block h-24 w-full bg-blueGray-900 rounded-md"
-                        href="#"
-                      >
-                        <div className="absolute top-0 left-0 h-full w-full transform -translate-y-1 -translate-x-1 group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                          <img
-                            className="img-fluid w-full h-full object-cover rounded-md border-2 border-black"
-                            src={drums}
-                            alt=""
-                          ></img>
-                        </div>
-                      </a>
-                    </div> */}
-                  {/* </div>  */}
                 </div>
               </div>
               <div className="w-full lg:w-1/2 px-4">
@@ -138,25 +80,14 @@ export default function ProductDetails() {
                     </button>
                   </div>
                   <span className="block text-2xl font-black text-green-700 mb-4">
-                   ${product.price}.00
+                    ${product.price}.00
                   </span>
-                  <p className="font-bold mb-2">
-                    {product.description}
-                  </p>
-                  {/* <ul className="list-disc list-inside font-medium mb-6">
-                    <li>
-                      Pariatur ex aliqua elit ut enim consequat amet non do ut.
-                    </li>
-                    <li>
-                      Ad aute deserunt fugiat qui Lorem in quis velit labore
-                      voluptate.
-                    </li>
-                    <li>Lorem in quis velit labore</li>
-                  </ul> */}
+                  <p className="font-bold mb-2">{product.description}</p>
+                 
                   <div className="flex flex-wrap mb-4">
-                    <div className="w-full sm:w-auto mb-4 sm:mb-0 sm:mr-4">
-                      {/* Input conditional logic for this to render if there are multiple items to purchase */}
-                      {/* <span className="block text-sm font-black mb-2">Amount</span>
+                    {/* <div className="w-full sm:w-auto mb-4 sm:mb-0 sm:mr-4">
+                      Input conditional logic for this to render if there are multiple items to purchase
+                      <span className="block text-sm font-black mb-2">Amount</span>
                       <div className="flex h-12 w-24 px-2 items-center justify-between border-2 border-black rounded-md">
                         <button className="flex w-3.5 h-3.5 px-px items-center justify-center bg-black hover:bg-indigo-500 rounded transition duration-100">
                           <div className="h-px mx-px w-full bg-white"></div>
@@ -171,10 +102,10 @@ export default function ProductDetails() {
                             </div>
                           </div>
                         </button>
-                      </div> */}
-                    </div>
+                      </div>
+                    </div> */}
                     <div className="w-full sm:w-auto">
-                      {/* Input conditional logic to show this if it is a clothing item */}
+  {/* Input conditional logic to show this if it is a clothing item */}
                       {/* <span className="block text-sm font-black mb-2">Size</span>
                       <div className="group relative h-12 w-32 border-2 border-black rounded-md overflow-hidden">
                         <select className="w-full h-full px-4 text-sm font-bold appearance-none outline-none" name="" id="">
@@ -190,11 +121,12 @@ export default function ProductDetails() {
                       </div> */}
                     </div>
                   </div>
-                  <div className="flex flex-wrap sm:flex-nowrap items-center -mx-2 mb-6">
+                  <div className="flex flex-wrap sm:flex-nowrap items-center -mx-2 mb-6 mt-20">
                     <div className="flex-grow-1 w-full px-2 mb-4">
-                      <a
+                      <Link
                         className="group relative inline-block h-12 w-full -mb-2 bg-blueGray-900 rounded-md"
-                        href="#"
+                        to="#"
+                        onClick={addToCart}
                       >
                         <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                           <div className="flex h-full w-full items-center justify-center bg-[#fc2403] border-2 border-black rounded-md hover:bg-black hover:border-[#fc2403]">
@@ -203,7 +135,7 @@ export default function ProductDetails() {
                             </span>
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                     {/* Tie logic that saves an item to a user's wishlist */}
                     <div className="w-auto px-2 mb-4">
@@ -232,27 +164,15 @@ export default function ProductDetails() {
             {/* Add conditional rendering logic that loads the Description, Customer Reviews or Shipping & Returns sections depending on what the user clicks */}
             <div className="mb-8 border-b-2 border-black">
               <div className="flex flex-col md:flex-row -mb-px">
-                <a
+                <h2
                   className="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-black text-[#fc2403] border-b-4 border-[#fc2403]"
-                  href="#"
-                  onClick={() => handleTabChange("Description")}
                 >
-                  Description
-                </a>
-                <a
-                  className="inline-block px-2 pb-2 mb-3 md:mb-0 text-lg font-bold text-black"
-                  href="#"
-                  onClick={() => handleTabChange("Reviews")}
-                >
-                  Customer Reviews
-                </a>
-                
+                  Seller Reviews
+                </h2>
+               
               </div>
-              {openTab === "Description" ? (
-                <Description />
-              ) : openTab === "Reviews" ? (
+             
                 <Comments />
-              ) : null}
             </div>
           </div>
         </div>

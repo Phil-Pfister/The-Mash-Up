@@ -1,10 +1,13 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import { useState, useEffect, useRef } from "react";
-import { Link } from 'react-router-dom';
-import Auth from '../../utils/auth'
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+import Cart from "./Cart";
+
 export default function Header() {
-const [isOpen, setIsOpen] = useState("");
+  
+  const [isOpen, setIsOpen] = useState("");
 
   const navMenu = [
     {
@@ -60,27 +63,27 @@ const [isOpen, setIsOpen] = useState("");
   ];
 
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true)
-  }, [])
+    document.addEventListener("click", handleClickOutside, true);
+  }, []);
 
   const refOne = useRef(null);
 
   const handleClickOutside = (e) => {
-    if(!refOne.current.contains(e.target)) {
-      setIsOpen('');
+    if (!refOne.current.contains(e.target)) {
+      setIsOpen("");
     } else {
-      console.log('Clicked inside tab');
+      console.log("Clicked inside tab");
     }
-  }
+  };
 
   return (
     <>
       <nav className="sticky top-0 z-50 flex justify-between flex-wrap bg-black p-4 h-[70px]">
         <div className="flex flex-shrink-0 text-white mr-6">
           <Link to="/">
-          <span className="font-semibold text-xl tracking-tight">
-            The Mash Up
-          </span>
+            <span className="font-semibold text-xl tracking-tight">
+              The Mash Up
+            </span>
           </Link>
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
@@ -130,22 +133,41 @@ const [isOpen, setIsOpen] = useState("");
         </div>
         {Auth.loggedIn() ? (
           <>
-          <Link to="/addProduct" className="p-2 text-white">Sell Your Product</Link>
-          <Link to="/account"><p className="p-2 text-white">Account</p></Link>
-          <Link to="/" onClick={Auth.logout}><p className="p-2 text-white">Logout</p></Link>
-          <Link to="/products/cart" className="p-2 pr-5" ><i className="fa-solid fa-cart-shopping text-[#fc2403] text-xl"></i></Link>
-          
-         </>
+            <Link to="/addProduct" className="p-2 text-white">
+              Sell
+            </Link>
+            <Link to="/account">
+              <p className="p-2 text-white">Account</p>
+            </Link>
+            <Link to="/" onClick={Auth.logout}>
+              <p className="p-2 text-white">Logout</p>
+            </Link>
+            <Link
+              to="#"
+              className="p-2 pr-5"
+              onClick={() => setIsOpen("cart")}
+            >
+              <i className="fa-solid fa-cart-shopping text-[#fc2403] text-xl"></i>
+            </Link>
+          </>
         ) : (
           <>
-            <Link to="/signup"><p className="text-white p-2">Sign Up</p></Link>
-            <Link to="/login"><p className="text-white p-2">Log In</p></Link>
+            <Link to="/signup">
+              <p className="text-white p-2">Sign Up</p>
+            </Link>
+            <Link to="/login">
+              <p className="text-white p-2">Log In</p>
+            </Link>
           </>
-
         )}
 
         <SearchBar />
       </nav>
+      <div>
+        {isOpen === "cart" && (
+          <Cart />
+        )}
+      </div>
     </>
   );
 }
