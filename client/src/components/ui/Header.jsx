@@ -115,7 +115,8 @@ const [isOpen, setIsOpen] = useState("");
                     {navMenu[i].dropdownList.map((item, i) => (
                       <li key={item} className="relative">
                         <Link
-                          to="#"
+                          to={`/productsearch/${item}`}
+                          search={item}
                           className=" block p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           {item}

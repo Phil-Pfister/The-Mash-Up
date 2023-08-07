@@ -6,6 +6,7 @@ import { ADD_PRODUCT } from '../utils/mutations';
 import { QUERY_USER } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import ProductSubmission from './ProductSubmission';
 // import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 
 const ProductForm = () => {
@@ -36,7 +37,7 @@ const ProductForm = () => {
         try {
           console.log({ name: formState.name,
             description: formState.description,
-            image: formState.image,
+            image: publicId,
             condition: formState.condition,
             seller: Auth.getUser().data.username,
             category: formState.category,
@@ -47,7 +48,7 @@ const ProductForm = () => {
                 variables: { 
                   name: formState.name,
                   description: formState.description,
-                  image: formState.image,
+                  image: publicId,
                   condition: formState.condition,
                   seller: Auth.getUser().data.username,
                   category: formState.category,
@@ -79,12 +80,14 @@ const ProductForm = () => {
               ...price
             });
             setQuantity({ ...quantity });
+            
         };
 
         return (
-    <div className="h-screen flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
     <h3 className="leading-6 text-2xl pb-8" >Add your product to sell to others</h3>  
-    {Auth.loggedIn() ? (     
+    {Auth.loggedIn() ? (
+      <>   
     <form onSubmit={handleFormSubmit} className="w-full max-w-lg object-center">
     <p className="text-white text-xs italic block">Please fill out all fields.</p>
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -121,7 +124,7 @@ const ProductForm = () => {
       
     </div>
   </div>
-  <div className="flex flex-wrap -mx-3 mb-6">
+  {/* <div className="flex flex-wrap -mx-3 mb-6">
     <div className="w-full px-3">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-image">
         Image
@@ -132,7 +135,8 @@ const ProductForm = () => {
       name="image" id="grid-image-link" type="text" placeholder="image url"/>
       
     </div>
-  </div>
+  </div> */}
+  
   <div className="flex flex-wrap -mx-3 mb-2">
     <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-condition">
@@ -198,6 +202,8 @@ const ProductForm = () => {
         </div>
   </div>
 </form>
+<ProductSubmission/>
+</>  
     ) : (
       <p>
           You need to be logged in to share add a product. Please{' '}

@@ -26,6 +26,7 @@ import ProductList from "./components/ui/ProductList";
 import ProductSubmission from "./pages/ProductSubmission";
 import UserProducts from "./pages/UserProducts";
 import SingleProduct from "./pages/SingleProduct";
+import ProductSearch from "./pages/ProductSearch";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -66,6 +67,7 @@ function App() {
             <Route path="/account/sale-history" element={<SaleHistory />} />
             <Route path="/user" element={<UserProducts />} />
             <Route path="/product/:productId" element={<SingleProduct />} />
+            <Route path="/productsearch/:searchKeyword" element={<ProductSearch />} />
           </Routes>
         </>
       </Router>
