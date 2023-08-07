@@ -118,7 +118,8 @@ export default function Header() {
                     {navMenu[i].dropdownList.map((item, i) => (
                       <li key={item} className="relative">
                         <Link
-                          to="#"
+                          to={`/productsearch/${item}`}
+                          search={item}
                           className=" block p-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           {item}
@@ -133,6 +134,7 @@ export default function Header() {
         </div>
         {Auth.loggedIn() ? (
           <>
+
             <Link to="/addProduct" className="p-2 text-white">
               Sell
             </Link>
@@ -150,6 +152,7 @@ export default function Header() {
               <i className="fa-solid fa-cart-shopping text-[#fc2403] text-xl"></i>
             </Link>
           </>
+
         ) : (
           <>
             <Link to="/signup">

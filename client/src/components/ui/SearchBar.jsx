@@ -1,6 +1,25 @@
 import React from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function SearchBar() {
+
+    const [search, setSearch] = useState("");
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        navigate(`/productsearch/${search}`);
+
+        setSearch("");
+    }
+    const handleChange = (event) => {
+        setSearch(event.target.value);
+    }
+    console.log(search);
+
     return (
         <>
             <div className='max-w-xl mx-auto'>
@@ -12,10 +31,14 @@ export default function SearchBar() {
                     </div>
 
                     <input
+                    onChange={handleChange}
+                    onKeyDown={handleSubmit}
                     className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
                     type="text"
                     id="search"
-                    placeholder="Search something.." /> 
+                    name="name"
+                    placeholder="Search something.." />
+                    
                 </div>
             </div>
         </>

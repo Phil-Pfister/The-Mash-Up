@@ -30,6 +30,7 @@ const typeDefs = gql`
     lastName: String
     username: String
     email: String
+    wishlist: [String]
     products: [Product]
     orders: [Order]
   }
@@ -39,12 +40,15 @@ const typeDefs = gql`
     user: User
   }
 
+ 
+
   type Query {
     
     products: [Product]
     product(productId: ID!): Product
     user: User
     order(_id: ID!): Order
+   
   }
 
   type Mutation {

@@ -5,7 +5,10 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_PRODUCT } from "../utils/mutations";
 import { QUERY_USER } from "../utils/queries";
 
-import Auth from "../utils/auth";
+
+import Auth from '../utils/auth';
+import ProductSubmission from './ProductSubmission';
+
 // import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 
 const ProductForm = () => {
@@ -31,31 +34,39 @@ const ProductForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      console.log({
-        name: formState.name,
-        description: formState.description,
-        image: formState.image,
-        condition: formState.condition,
-        seller: Auth.getUser().data.username,
-        category: formState.category,
-        keyword: formState.keyword,
-        price,
-        quantity,
-      });
-      const { data } = await addProduct({
-        variables: {
-          name: formState.name,
-          description: formState.description,
-          image: formState.image,
-          condition: formState.condition,
-          seller: Auth.getUser().data.username,
-          category: formState.category,
-          keyword: formState.keyword,
-          price,
-          quantity,
-        },
-      });
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+      
+        try {
+          console.log({ name: formState.name,
+            description: formState.description,
+            image: publicId,
+            condition: formState.condition,
+            seller: Auth.getUser().data.username,
+            category: formState.category,
+            keyword: formState.keyword,
+            price,
+            quantity, })
+            const { data } = await addProduct({
+                variables: { 
+                  name: formState.name,
+                  description: formState.description,
+                  image: publicId,
+                  condition: formState.condition,
+                  seller: Auth.getUser().data.username,
+                  category: formState.category,
+                  keyword: formState.keyword,
+                  price,
+                  quantity, 
+                  },
+                
+                
+                });
+            
+               navigate("/products");
+            
+
 
       navigate("/products");
     } catch (err) {
@@ -63,43 +74,37 @@ const ProductForm = () => {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-    setPrice({
-      ...price,
-    });
-    setQuantity({ ...quantity });
-  };
 
-  return (
-    <div className="h-screen w-full flex flex-col items-center justify-center ">
-     
-      {Auth.loggedIn() ? (
-        <form
-          onSubmit={handleFormSubmit}
-          className="w-full max-w-lg object-center bg-gray-300 border-4 border-black rounded p-10"
-        >
-           <h3 className="leading-6 text-2xl pb-8 text-5xl font-bold text-center">
-        Sell Your Product
-      </h3>
-          <p className="text-black text-xs italic block">
-            Please fill out all fields.
-          </p>
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-product-name"
-              >
-                Product Name
-              </label>
-              <input
-                onChange={handleChange}
-                className="appearance-none block w-full bg-gray-200 
+        const handleChange = (event) => {
+            const { name, value } = event.target;
+            setFormState({
+                ...formState,
+                [name]: value,
+            });
+            setPrice({
+              ...price
+            });
+            setQuantity({ ...quantity });
+            
+        };
+
+        return (
+    <div className="flex flex-col items-center justify-center">
+    <h3 className="leading-6 text-2xl pb-8" >Add your product to sell to others</h3>  
+    {Auth.loggedIn() ? (
+      <>   
+    <form onSubmit={handleFormSubmit} className="w-full max-w-lg object-center">
+    <p className="text-white text-xs italic block">Please fill out all fields.</p>
+        <div className="flex flex-wrap -mx-3 mb-6">
+        
+        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-product-name">
+        Product Name
+      </label>
+      <input onChange={handleChange} 
+      className="appearance-none block w-full bg-gray-200 
+
       text-gray-700 border rounded py-3 px-4 mb-3 leading-tight 
       focus:outline-none focus:bg-white"
                 id="grid-product-name"
@@ -136,45 +141,33 @@ const ProductForm = () => {
                 onChange={handleChange}
                 className="appearance-none block w-full 
       bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 
-      leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                name="description"
-                id="grid-image-link"
-                type="text"
-                placeholder="Description"
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-image"
-              >
-                Image
-              </label>
-              <input
-                onChange={handleChange}
-                className="appearance-none block w-full 
+
+      leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+      name="description" id="grid-image-link" type="text" placeholder="Description"/>
+      
+    </div>
+  </div>
+  {/* <div className="flex flex-wrap -mx-3 mb-6">
+    <div className="w-full px-3">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-image">
+        Image
+      </label>
+      <input onChange={handleChange} className="appearance-none block w-full 
       bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 
-      leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                name="image"
-                id="grid-image-link"
-                type="text"
-                placeholder="image url"
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap -mx-3 mb-2">
-            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-condition"
-              >
-                condition
-              </label>
-              <input
-                onChange={handleChange}
-                className="appearance-none block w-full bg-gray-200 
+      leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+      name="image" id="grid-image-link" type="text" placeholder="image url"/>
+      
+    </div>
+  </div> */}
+  
+  <div className="flex flex-wrap -mx-3 mb-2">
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-condition">
+        condition
+      </label>
+      <input onChange={handleChange} 
+      className="appearance-none block w-full bg-gray-200 
+
       text-gray-700 border border-gray-200 rounded py-3 px-4 
       leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 name="condition"
@@ -260,32 +253,24 @@ const ProductForm = () => {
                 onChange={handleQuantChange}
                 className="appearance-none block w-full bg-gray-200 text-gray-700
        border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none 
-       focus:bg-white focus:border-gray-500"
-                name="quantity"
-                id="grid-zip"
-                type="number"
-                placeholder="1"
-              />
-            </div>
-            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-keyword"
-              >
-                Push
-              </label>
-              <button
-                className="bg-[#fc2403] hover:bg-black text-white font-bold py-2 px-4 rounded"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      ) : (
-        <p>
-          You need to be logged in to share add a product. Please{" "}
+
+       focus:bg-white focus:border-gray-500" 
+       name="quantity" id="grid-zip" type="number" placeholder="1"/>
+    </div>
+    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-keyword">
+        Push
+      </label>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+        </div>
+  </div>
+</form>
+<ProductSubmission/>
+</>  
+    ) : (
+      <p>
+          You need to be logged in to share add a product. Please{' '}
+
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

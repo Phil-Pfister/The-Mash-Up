@@ -43,6 +43,9 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
   },
+
+ 
+
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
@@ -73,6 +76,14 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    // userWishlist: async (parent, { wishlist }, context) =>  {
+    //   if (context.user) {
+    //     return User.findOneAndUpdate({username: context.user.username}, {
+    //       $addToSet: { wishlist: product._id}
+    //     })
+    //   }
+    //   throw new AuthenticationError('Not logged in');
+    // },
 
     addProduct: async (parent, { name, description, image, condition, seller, category, keyword, price, quantity }, context) => {
       
