@@ -15,7 +15,7 @@ export default function Header() {
       title: "Instruments",
       selected: false,
       dropdownList: [
-        "Guitar and Basses",
+        "Guitars and Basses",
         "Percussion",
         "Piano",
         "String",
