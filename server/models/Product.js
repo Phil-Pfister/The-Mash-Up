@@ -36,6 +36,7 @@ const productSchema = new Schema({
   },
   keyword: {
     type: String,
+    lowercase: true,
   },
     
   

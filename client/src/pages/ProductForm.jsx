@@ -31,8 +31,7 @@ const ProductForm = () => {
 
   const [addProduct] = useMutation(ADD_PRODUCT);
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  
 
 
     const handleFormSubmit = async (event) => {
