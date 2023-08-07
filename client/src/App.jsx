@@ -4,11 +4,11 @@ import Header from "./components/ui/Header";
 import Home from "./pages/Home";
 import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
-import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
+import Cart from "./components/ui/Cart";
 import Account from "./pages/Account";
 import PurchaseHistory from "./components/ui/PurchaseHistory";
 import SaleHistory from "./components/ui/ProductOrders";
+import Checkout from "./pages/Checkout";
 
 {
   /*import Home from './pages/Home';*/
@@ -60,8 +60,8 @@ function App() {
             <Route path="/products" element={<ProductList />} />
             <Route path="/productsubmission" element={<ProductSubmission />} />
             <Route path="/addProduct" element={<ProductForm />} />
-            <Route path="/products/details" element={<ProductDetails />} />
             <Route path="/products/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/account" element={<Account />} />
             <Route path="/account/purchase-history" element={<PurchaseHistory />} />
             <Route path="/account/sale-history" element={<SaleHistory />} />
