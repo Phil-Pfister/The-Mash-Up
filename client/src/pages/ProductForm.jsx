@@ -367,116 +367,11 @@ const ProductForm = () => {
                 Submit
               </button>
             </div>
-<<<<<<< HEAD
-            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-price"
-              >
-                Price
-              </label>
-              <input
-                onChange={handlePriceChange}
-                className="appearance-none block w-full bg-gray-200 
-      text-gray-700 border border-gray-200 rounded py-3 px-4 
-      leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                name="price"
-                id="grid-zip"
-                type="number"
-                placeholder="in usd"
-              />
-            </div>
-            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-keyword"
-              >
-                Quantity
-              </label>
-              <input
-                onChange={handleQuantChange}
-                className="appearance-none block w-full bg-gray-200 text-gray-700
-       border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none 
-
-       focus:bg-white focus:border-gray-500" 
-       name="quantity" id="grid-zip" type="number" placeholder="1"/>
-    </div>
-    <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-keyword">
-        Push
-      </label>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
-        </div>
-  </div>
-</form>
-  <div className="sm:px-8 md:px-16 sm:py-8">
-      <div className="">
-        <header className="border-dashed border-2 border-gray-400 py-12 flex flex-col justify-center items-center">
-          <p className="mb-3 font-semibold text-gray-900 flex flex-wrap justify-center">
-            <span>Click on Upload a File</span>&nbsp;
-          </p>
-          <input
-            id="hidden-input"
-            type="file"
-            className="hidden"
-            onChange={handleImageChange}
-            accept="image/*"
-          />
-          <label htmlFor="hidden-input" className="cursor-pointer">
-            <div className="mt-2 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none">
-              Upload a file
-            </div>
-          </label>
-
-          <div className="flex justify-center items-center mt-5 mx-3 max-w-xs">
-            {preview && <img src={preview} alt="preview" className="w-full" />}
-          </div>
-        </header>
-        <div className="flex justify-end pb-8 pt-6 gap-4">
-          <button
-            onClick={uploadImage}
-            className="rounded-sm px-3 py-1 bg-blue-700 hover:bg-blue-500 text-white focus:shadow-outline focus:outline-none disabled:cursor-not-allowed"
-            disabled={!image}
-          >
-            Upload now
-          </button>
-          <button
-            onClick={handleResetClick}
-            className="rounded-sm px-3 py-1 bg-red-700 hover:bg-red-500 text-white focus:shadow-outline focus:outline-none"
-          >
-            Reset
-          </button>
-        </div>
-        {loading ? (
-          <div className="flex items-center justify-center gap-2">
-            <div className="border-t-transparent border-solid animate-spin rounded-full border-blue-400 border-4 h-6 w-6"></div>
-            <span>Processing...</span>
-          </div>
-        ) : (
-          url && (
-            <div className="pb-8 pt-4">
-              <Image
-              className="max-h-6"
-                cloudName={"dzcqdcvqv"}
-                publicId={url}
-              />
-            </div>
-          )
-        )}
-      </div>
-    </div>
-</>  
-    ) : (
-      <p>
-          You need to be logged in to share add a product. Please{' '}
-
-=======
           </form>
         </>
       ) : (
         <p>
           You need to be logged in to share add a product. Please{" "}
->>>>>>> 064a34c47c11bf49c0b5a619f71e203a933e0347
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
