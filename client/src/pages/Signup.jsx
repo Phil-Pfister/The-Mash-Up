@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const SignUp = () => {
-  const navigate = useNavigation("/products");
+  const navigate = useNavigate("/products");
   const [userData, setUserData] = useState({});
 
   const [addUser] = useMutation(ADD_USER);
@@ -25,6 +25,7 @@ const SignUp = () => {
       });
 
       Auth.login(data.addUser.token);
+      navigate("/products")
     } catch (error) {
       console.error("Error registering user:", error);
       // Handle error and display appropriate error messages to the user.
