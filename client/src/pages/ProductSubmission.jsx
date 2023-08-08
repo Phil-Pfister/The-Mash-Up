@@ -15,19 +15,22 @@ const ProductSubmission = () => {
     data.append("file", image);
     data.append(
       "upload_preset",
-      "hjgaxcrg"
+      import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
     );
-    data.append("cloud_name", "dzcqdcvqv");
+   
+    data.append("cloud_name", import.meta.VITE_CLOUDINARY_CLOUD_NAME);
+    
     data.append("folder", "Cloudinary-React");
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dzcqdcvqv/image/upload`,
+        `https://api.cloudinary.com/v1_1/${import.meta.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
         {
           method: "POST",
           body: data,
         }
       );
+      
       const res = await response.json();
       setUrl(res.public_id);
       setLoading(false);
