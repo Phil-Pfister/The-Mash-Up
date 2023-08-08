@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { Image } from "cloudinary-react";
 import { ADD_PRODUCT } from "../utils/mutations";
-import { QUERY_USER } from "../utils/queries";
+import { QUERY_ALL_PRODUCTS, QUERY_USER } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -75,7 +75,9 @@ const ProductForm = () => {
 
   // const [numberInput, setNumberInput] = useState({ price: 0, quantity: 0 })
 
-  const [addProduct] = useMutation(ADD_PRODUCT);
+  const [addProduct] = useMutation(ADD_PRODUCT, {
+    refetchQueries: [{ query: QUERY_ALL_PRODUCTS }]
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();

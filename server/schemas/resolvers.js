@@ -107,10 +107,6 @@ const resolvers = {
         { $addToSet: { products: product._id }}
       )
        
-        // await User.findOneAndUpdate(
-        //   { _id:context.user._id },
-        //   { $addToSet: { products: product._id} }
-        // );
         return product;
         }
 
