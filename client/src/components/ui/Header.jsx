@@ -80,7 +80,7 @@ export default function Header() {
       <nav className="sticky top-0 z-50 flex justify-between flex-wrap bg-black p-4 h-[70px]">
         <div className="flex flex-shrink-0 text-white mr-6">
           <Link to="/">
-            <span className="font-semibold text-xl tracking-tight">
+            <span className="font-semibold text-xl tracking-tight" id="title">
               The Mash Up
             </span>
           </Link>
