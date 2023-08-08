@@ -141,7 +141,7 @@ export default function ProductDetails() {
                
               </div>
              
-                <Comments />
+                <Comments name={product.seller} />
             </div>
           </div>
         </div>

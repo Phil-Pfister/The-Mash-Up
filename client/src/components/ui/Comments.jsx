@@ -1,4 +1,4 @@
-export default function Comments() {
+export default function Comments(props) {
     return (
         <>
         <div className="py-12 px-4 md:px-6 2xl:px-0 2xl:container 2xl:mx-auto flex justify-center items-center">
@@ -67,7 +67,7 @@ export default function Comments() {
                          </div>
                      </div>
                      <div id="menu" className="md:block">
-                         <p className="mt-3 text-base leading-normal text-gray-600  w-full md:w-9/12 xl:w-5/6">My experience buying from Jimmih was amazing. </p>
+                         <p className="mt-3 text-base leading-normal text-gray-600  w-full md:w-9/12 xl:w-5/6">My experience buying from {props.name} was amazing. </p>
                         
                          <div className="mt-6 flex justify-start items-center flex-row space-x-2.5">
                              <div>
