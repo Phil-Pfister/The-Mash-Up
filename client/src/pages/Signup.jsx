@@ -25,7 +25,7 @@ const SignUp = () => {
       });
 
       Auth.login(data.addUser.token);
-      navigate("/products")
+      // navigate("/products")
     } catch (error) {
       console.error("Error registering user:", error);
       // Handle error and display appropriate error messages to the user.
