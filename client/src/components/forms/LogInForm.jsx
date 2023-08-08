@@ -19,7 +19,7 @@ export default function LogInForm(props) {
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
-      // navigate("/products")
+      navigate("/products")
     } catch (e) {
       console.log(e);
     }
