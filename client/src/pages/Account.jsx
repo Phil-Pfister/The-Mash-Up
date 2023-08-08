@@ -3,6 +3,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import ProductOrders from "../components/ui/ProductOrders";
 import PurchaseHistory from "../components/ui/PurchaseHistory";
+import UserProducts from "./UserProducts";
 import { useState } from "react";
 
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
@@ -25,9 +26,11 @@ export default function Account() {
       />
       {accountPage === "Product Orders" ? (
         <ProductOrders />
+      ) : accountPage === "User Profile" ? (
+        <UserProducts />
       ) : (
         <PurchaseHistory />
-      ) }
+      )}
     </>
   );
 }

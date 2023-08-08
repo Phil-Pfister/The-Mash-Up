@@ -13,12 +13,13 @@ const ProductList = () => {
 
   return (
     <>
-    <h2 className="text-[50px] font-bold text-center p-10">Welcome to the Store</h2>
+      <h2 className="text-[50px] font-bold text-center p-10">
+        Welcome to the Store
+      </h2>
       <div className="w-full flex flex-wrap justify-center">
         {products &&
           products.map((product) => (
-            <Link key={product._id} to={`/product/${product._id}`}>
-            <div  className="m-5 h-[70%]">
+            <div className="m-5 h-[70%]" key={product._id}>
               <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl p-6">
                 <div className="flex flex-col ">
                   <div className="">
@@ -41,11 +42,13 @@ const ProductList = () => {
                           </svg>
                         </button>
                       </div>
-                      <img
-                        src={product.image}
-                        alt="Just a flower"
-                        className=" w-full   object-fill  rounded-2xl"
-                      ></img>
+                      <Link to={`/product/${product._id}`}>
+                        <img
+                          src={product.image}
+                          alt="Just a flower"
+                          className=" w-full   object-fill  rounded-2xl"
+                        ></img>
+                      </Link>
                     </div>
                     <div className="flex-auto justify-evenly">
                       <div className="flex flex-wrap ">
@@ -78,46 +81,7 @@ const ProductList = () => {
                       <div className="text-xl text-white font-semibold mt-1">
                         ${product.price}.00
                       </div>
-                      <div className="lg:flex  py-4  text-sm text-gray-600">
-                        {/* <div className="flex-1 inline-flex items-center  mb-3"> */}
-                          {/* <div className="w-full flex-none text-sm flex items-center text-gray-600">
-                  <ul className="flex flex-row justify-center items-center space-x-2">
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-blue-600 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#blue"
-                          className="block w-3 h-3 bg-blue-600 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-yellow-400 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#yellow"
-                          className="block w-3 h-3  bg-yellow-400 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-red-500 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#red"
-                          className="block w-3 h-3  bg-red-500 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-green-500 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#green"
-                          className="block w-3 h-3  bg-green-500 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                  </ul>
-                </div> */}
-                        {/* </div> */}
-                      </div>
+                      <div className="lg:flex  py-4  text-sm text-gray-600"></div>
                       <div className="flex space-x-2 text-sm font-medium justify-start">
                         <button className="cart-btn transition ease-in duration-300 inline-flex items-center text-sm font-medium mb-2 md:mb-0 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-white hover:text-black ">
                           <span>Add Cart</span>
@@ -150,7 +114,6 @@ const ProductList = () => {
                 </div>
               </div>
             </div>
-            </Link>
           ))}
       </div>
     </>

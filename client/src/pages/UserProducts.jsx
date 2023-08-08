@@ -15,7 +15,7 @@ const UserProducts = (props) => {
 
     return (
         <main>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center pl-[200px]">
           {Auth.loggedIn() ? (
             <>
             <div className="p-8">
@@ -27,7 +27,7 @@ const UserProducts = (props) => {
             {userData.products &&
           userData.products.map((product) => (
            
-            <div  className="m-5 h-[70%]">
+            <div  className="m-5 h-[70%]" key={product._id}>
               <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl p-6">
                 <div className="flex flex-col ">
                 <Link to={`/product/${product._id}`}>
