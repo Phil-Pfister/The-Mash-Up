@@ -76,7 +76,7 @@ const ProductForm = () => {
   // const [numberInput, setNumberInput] = useState({ price: 0, quantity: 0 })
 
   const [addProduct] = useMutation(ADD_PRODUCT, {
-    refetchQueries: [{ query: QUERY_ALL_PRODUCTS }]
+    refetchQueries: [{ query: QUERY_ALL_PRODUCTS }, { query: QUERY_USER }]
   });
 
   const handleFormSubmit = async (event) => {
