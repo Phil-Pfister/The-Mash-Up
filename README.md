@@ -34,7 +34,7 @@
   After cloning the repo and installing all dev dependencies, you can run the application by typing in <code>npm run develop</code> in the integrated terminal. This will open the app in your browser.
 
   ## Deployed Application
-  [The Mash Up](https://the-mash-up.herokuapp.com/)
+  [The Mash Up](https://the-mash-up-b8a52234a88b.herokuapp.com/)
 
   ## Screenshot
   ![screenshot of application](./client/public/images/screenshot.PNG)
