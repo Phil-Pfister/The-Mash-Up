@@ -21,7 +21,7 @@ const ProductSearch = () => {
       <div className="w-full flex flex-wrap justify-center">
         {searched &&
           searched.map((searched) => (
-            <div  className="m-5 h-[70%]">
+            <div  className="m-5 h-[70%]" key={searched._id}>
               <div className="max-w-xs max-h-xs w-full bg-black shadow-lg rounded-xl p-6">
                 <div className="flex flex-col ">
                   <div className="">
@@ -44,7 +44,7 @@ const ProductSearch = () => {
                           </svg>
                         </button>
                       </div>
-                      <Link key={searched._id} to={`/product/${searched._id}`}>
+                      <Link  to={`/product/${searched._id}`}>
                       <img
                         src={searched.image}
                         alt="Just a flower"
