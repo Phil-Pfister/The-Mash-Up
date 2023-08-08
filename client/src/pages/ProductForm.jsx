@@ -331,6 +331,7 @@ const ProductForm = () => {
                   </header>
                   <div className="flex flex-col sm:flex-row justify-center sm:justify-end py-2 sm:py-3 gap-1 sm:gap-2">
                     <button
+                    type="button"
                       onClick={uploadImage}
                       className="w-full sm:w-auto rounded-sm px-2 py-1 bg-[#fc2403] hover:bg-black text-white focus:shadow-outline focus:outline-none disabled:cursor-not-allowed"
                       disabled={!image}
@@ -338,6 +339,7 @@ const ProductForm = () => {
                       Upload Now
                     </button>
                     <button
+                    type="reset"
                       onClick={handleResetClick}
                       className="w-full sm:w-auto rounded-sm px-2 py-1 mt-1 sm:mt-0 bg-[#fc2403] hover:bg-black text-white focus:shadow-outline focus:outline-none"
                     >
