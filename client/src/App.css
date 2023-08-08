@@ -1,9 +1,18 @@
+* {
+  font-family: 'Rowdies';
+}
+
 #root {
     background-color: #fc2403;
 }
 
 body {
     background-color: #fc2403;
+}
+
+#title {
+  font-family: 'Monofett';
+  font-size: 50px;
 }
 
 .welcome-page {

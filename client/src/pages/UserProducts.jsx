@@ -19,10 +19,10 @@ const UserProducts = (props) => {
           {Auth.loggedIn() ? (
             <>
             <div className="p-8">
-              <p className="text-2xl text-white text-center" >Welcome {userData.username}</p>
+              <p className="text-[40px] text-white text-center p-6" >Welcome {userData.username}</p>
             </div>
             
-            <div className="col-12 col-md-8 mb-3 flex flex-row flex-wrap">
+            <div className="col-12 col-md-8 mb-3 flex flex-row justify-center flex-wrap">
             
             {userData.products &&
           userData.products.map((product) => (
@@ -58,44 +58,6 @@ const UserProducts = (props) => {
                         ${product.price}.00
                       </div>
                       <div className="lg:flex  py-4  text-sm text-white">{product.description}
-                        {/* <div className="flex-1 inline-flex items-center  mb-3"> */}
-                          {/* <div className="w-full flex-none text-sm flex items-center text-gray-600">
-                  <ul className="flex flex-row justify-center items-center space-x-2">
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-blue-600 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#blue"
-                          className="block w-3 h-3 bg-blue-600 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-yellow-400 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#yellow"
-                          className="block w-3 h-3  bg-yellow-400 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-red-500 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#red"
-                          className="block w-3 h-3  bg-red-500 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                    <li className="">
-                      <span className="block p-1 border-2 border-gray-900 hover:border-green-500 rounded-full transition ease-in duration-300">
-                        <a
-                          href="#green"
-                          className="block w-3 h-3  bg-green-500 rounded-full"
-                        ></a>
-                      </span>
-                    </li>
-                  </ul>
-                </div> */}
-                        {/* </div> */}
                       </div>
                      
                     </div>

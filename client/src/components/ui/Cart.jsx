@@ -1,4 +1,4 @@
-
+import drums from '../../assets/images/drums.jpg'
 import { Link } from "react-router-dom";
 
 export default function Cart() {
@@ -46,7 +46,7 @@ export default function Cart() {
             <div className="w-full px-4 mb-6 md:w-1/3 md:mb-0">
               <div className="flex w-full h-96 md:h-32 md:w-32">
                 <img
-                  src="https://i.postimg.cc/hj6h6Vwv/pexels-artem-beliaikin-2292919.jpg"
+                  src={drums}
                   alt=""
                   className="object-cover w-full h-full rounded-md"
                 ></img>

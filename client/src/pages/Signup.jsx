@@ -32,7 +32,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#fc2403]">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#fc2403] p-10">
       <form
         className="
           flex flex-col
