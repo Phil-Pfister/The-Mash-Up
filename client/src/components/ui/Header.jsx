@@ -49,7 +49,6 @@ export default function Header() {
         "Classical",
         "Folk",
         "Country",
-        "blacks",
         "Latin",
         "Reggae",
       ],
@@ -89,6 +88,14 @@ export default function Header() {
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-md flex items-center justify-center lg:flex-grow ">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 bg-black-50 md:flex-row md:space-x-8 md:mt-0 md:border-0">
+              <li className="-mt-2">
+                  <Link
+                    to={`/products`}
+                    className="block p-2 text-white"
+                  >
+                    Store
+                  </Link>
+              </li>
               {navMenu.map((item, i) => (
                 <div key={item.id} className="relative">
                   <div className="flex">
@@ -109,6 +116,7 @@ export default function Header() {
                     </li>
                   </div>
                   <ul
+                  
                     className={
                       isOpen === item.title
                         ? "p-2 text-sm text-white flex flex-col bg-black absolute top-[calc(100%+10px)] left-0"
