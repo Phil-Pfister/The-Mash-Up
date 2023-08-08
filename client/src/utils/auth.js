@@ -37,6 +37,7 @@ class AuthService {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/products');
     
+    
   }
 
   logout() {
