@@ -11,7 +11,7 @@ import Auth from "../utils/auth";
 
 const ProductForm = () => {
   const navigate = useNavigate();
-  const [formState, setFormState] = useState({ category: "Music" });
+  const [formState, setFormState] = useState({ category: "Music", condition: "Mint" });
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -209,24 +209,25 @@ const ProductForm = () => {
                 >
                   condition
                 </label>
-                <input
-                  onChange={handleChange}
-                  className="appearance-none block w-full bg-gray-200 
-
-      text-gray-700 border border-gray-200 rounded py-3 px-4 
-      leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  name="condition"
-                  id="grid-condition"
-                  type="text"
-                  placeholder="mint, great, good, fair, poor"
-                />
+                <select
+                    onChange={handleChange}
+                    name="condition"
+                    className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-state"
+                  >
+                    <option>Mint</option>
+                    <option>Great</option>
+                    <option>Good</option>
+                    <option>Fair</option>
+                    <option>Poor</option>
+                  </select>
               </div>
               <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  htmlFor="grid-category"
+                  htmlFor="grid-condition"
                 >
-                  category
+                  Condition
                 </label>
                 <div className="relative">
                   <select
