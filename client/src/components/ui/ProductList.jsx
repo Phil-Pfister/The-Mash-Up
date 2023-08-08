@@ -13,8 +13,8 @@ const ProductList = () => {
 
   return (
     <>
-    <h2 className="text-[50px] font-bold">Products Page</h2>
-      <div className="w-full flex flex-wrap">
+    <h2 className="text-[50px] font-bold text-center p-10">Welcome to the Store</h2>
+      <div className="w-full flex flex-wrap justify-center">
         {products &&
           products.map((product) => (
             <Link key={product._id} to={`/product/${product._id}`}>

@@ -12,7 +12,7 @@ export default function Cart() {
     <div className="relative font-poppins">
       <div className="AZfixed inset-0 bg-gray-700 opacity-25"></div>
       <div className="fixed top-0 bottom-0 right-0 z-10 w-full max-w-xl overflow-y-scroll bg-white ">
-        <div className="p-6 bg-neutral-400 md:pt-12 md:pb-6 md:px-12 ">
+        <div className="p-6 bg-neutral-400 h-screen md:pt-20 md:pb-6 md:px-12 ">
           <div className="text-right">
             <button className="text-gray-700 ">
               <svg
@@ -39,7 +39,7 @@ export default function Cart() {
               Shopping Cart
             </h2>
             <span className="inline-flex items-center justify-center w-8 h-8 ml-4 text-base font-bold bg-white rounded-full text-[#fc2403]">
-              6
+              1
             </span>
           </div>
           <div className="block pb-6 mb-6 -mx-4 border-b border-gray-200 md:flex">
@@ -79,83 +79,10 @@ export default function Cart() {
               </div>
             </div>
           </div>
-          <div className="block pb-6 mb-6 -mx-4 border-b border-gray-200 md:flex">
-            <div className="w-full px-4 mb-6 md:w-1/3 md:mb-0">
-              <div className="flex w-full h-96 md:h-32 md:w-32">
-                <img
-                  src="https://i.postimg.cc/x1dZ1XSV/pexels-k-bra-do-u-10154821.jpg"
-                  alt=""
-                  className="object-cover w-full h-full rounded-md"
-                ></img>
-              </div>
-            </div>
-            <div className="w-full px-4 md:2/3">
-              <div className="flex justify-between">
-                <div className="">
-                  <h2 className="mb-2 text-xl font-bold ">
-                    Product Name
-                  </h2>
-                  <p className="mb-4 text-sm font-medium text-white  ">
-                    {" "}
-                    Quantity: 4
-                  </p>
-                  <div>
-                    <button className="px-4 py-2 mb-4 mr-4 font-medium text-center bg-zinc-900 text-white rounded-md md:mb-0    hover:bg-[#fc2403] hover:text-gray-100">
-                      Edit
-                    </button>
-                    <button className="px-4 py-2 font-medium text-center text-white bg-zinc-900 rounded-md   hover:bg-[#fc2403] hover:text-gray-100">
-                      Remove
-                    </button>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-lg font-bold text-black ">
-                    $299.00
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="block pb-6 mb-6 -mx-4 border-b border-gray-200 md:flex">
-            <div className="w-full px-4 mb-6 md:w-1/3 md:mb-0">
-              <div className="flex w-full h-96 md:h-32 md:w-32">
-                <img
-                  src="https://i.postimg.cc/pdcRLwSq/pexels-igor-ovsyannykov-205961.jpg"
-                  alt=""
-                  className="object-cover w-full h-full rounded-md"
-                ></img>
-              </div>
-            </div>
-            <div className="w-full px-4 md:2/3">
-              <div className="flex justify-between">
-                <div className="">
-                  <h2 className="mb-2 text-xl font-bold ">
-                    Product Name
-                  </h2>
-                  <p className="mb-4 text-sm font-medium text-white  ">
-                    {" "}
-                    Quantity: 4
-                  </p>
-                  <div>
-                    <button className="px-4 py-2 mb-4 mr-4 font-medium text-center bg-zinc-900 text-white rounded-md md:mb-0    hover:bg-[#fc2403] hover:text-gray-100">
-                      Edit
-                    </button>
-                    <button className="px-4 py-2 font-medium text-center bg-zinc-900 text-white rounded-md   hover:bg-[#fc2403] hover:text-gray-100">
-                      Remove
-                    </button>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-lg font-bold text-black ">
-                    $299.00
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+         
           <div className="flex justify-between text-base ">
             <p>Subtotal</p>
-            <p>$400.00</p>
+            <p>$299.00</p>
           </div>
           <p className="mt-4 text-sm text-black ">
             Shipping calculated at checkout period.

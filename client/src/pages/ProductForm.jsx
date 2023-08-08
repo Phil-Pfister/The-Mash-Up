@@ -137,6 +137,7 @@ const ProductForm = () => {
             onSubmit={handleFormSubmit}
             className="w-full max-w-lg object-center bg-gray-400 p-6 rounded border-4 border-black"
           >
+            <h2 className="font-bold text-center text-2xl p-3">Product Form</h2>
             <p className="text-white text-xs italic block">
               Please fill out all fields.
             </p>
@@ -303,9 +304,9 @@ const ProductForm = () => {
                   placeholder="1"
                 />
               </div>
-              <div className="sm:px-8 md:px-16 sm:py-8">
-                <div className="bg-white rounded-lg shadow-lg p-2 sm:p-3">
-                  <header className="border-dashed border-2 border-gray-400 py-2 sm:py-4 flex flex-col justify-center items-center">
+              <div className="w-full p-5">
+                <div className="bg-white rounded shadow-lg p-2 sm:p-3">
+                  <header className=" border-gray-400 py-2 sm:py-4 flex flex-col justify-center items-center">
                     
                     <input
                       id="hidden-input"
@@ -316,7 +317,7 @@ const ProductForm = () => {
                     />
                     <label htmlFor="hidden-input" className="cursor-pointer">
                       <div className="mt-1 rounded-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 focus:shadow-outline focus:outline-none text-center">
-                        Upload a File
+                        Upload Image
                       </div>
                     </label>
                     <div className="flex justify-center items-center mt-1 sm:mt-2 mx-2 max-w-xs">
@@ -329,9 +330,9 @@ const ProductForm = () => {
                       )}
                     </div>
                   </header>
-                  <div className="flex flex-col sm:flex-row justify-center sm:justify-end py-2 sm:py-3 gap-1 sm:gap-2">
+                  <div className="flex justify-center py-2 gap-1 ">
                     <button
-                    type="button"
+                      type="button"
                       onClick={uploadImage}
                       className="w-full sm:w-auto rounded-sm px-2 py-1 bg-[#fc2403] hover:bg-black text-white focus:shadow-outline focus:outline-none disabled:cursor-not-allowed"
                       disabled={!image}
@@ -339,7 +340,7 @@ const ProductForm = () => {
                       Upload Now
                     </button>
                     <button
-                    type="reset"
+                      type="reset"
                       onClick={handleResetClick}
                       className="w-full sm:w-auto rounded-sm px-2 py-1 mt-1 sm:mt-0 bg-[#fc2403] hover:bg-black text-white focus:shadow-outline focus:outline-none"
                     >
@@ -360,15 +361,16 @@ const ProductForm = () => {
                   )}
                 </div>
               </div>
-            </div>
-            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <div className="w-full px-3 mb-6 md:mb-0">
               <button
-                className="bg-[#fc2403] hover:bg-black text-white font-bold py-2 px-4 rounded"
+                className="bg-[#fc2403] w-full hover:bg-black text-white font-bold py-2 px-4 rounded"
                 type="submit"
               >
                 Submit
               </button>
             </div>
+            </div>
+            
           </form>
         </>
       ) : (
