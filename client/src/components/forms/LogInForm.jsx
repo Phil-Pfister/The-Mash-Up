@@ -151,7 +151,11 @@ export default function LogInForm(props) {
                   />
                 </div>
               </div>
-
+              {error ? (
+          <div className="block">
+            <p className="text-lg ml-2 text-[#fc2403] font-semibold">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
               <div className="flex w-full">
                 <button
                   type="submit"

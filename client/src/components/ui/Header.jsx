@@ -79,11 +79,20 @@ export default function Header() {
     <>
       <nav className="sticky top-0 z-50 flex justify-between flex-wrap bg-black p-4 h-[70px]">
         <div className="flex flex-shrink-0 text-white mr-6">
+        {Auth.loggedIn() ? (
+          <Link to="/user">
+            <span className="font-semibold text-xl tracking-tight" id="title">
+              The Mash Up
+            </span>
+          </Link>
+        ) : (
           <Link to="/">
             <span className="font-semibold text-xl tracking-tight" id="title">
               The Mash Up
             </span>
           </Link>
+        )}
+         
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-md flex items-center justify-center lg:flex-grow ">
